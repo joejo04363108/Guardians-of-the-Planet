@@ -96,4 +96,19 @@ public class BobController : MonoBehaviour
         sword.SetActive(true);
 
     }
+
+    private static BobController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 }
