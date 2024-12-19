@@ -4,12 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - bob
+  - ItemDrop
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
