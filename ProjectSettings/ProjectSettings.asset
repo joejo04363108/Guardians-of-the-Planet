@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: 00000000000000000000000000000000
+  productGUID: 568927979c40a2e458a14b8a80d2c6c8
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -678,7 +678,7 @@ PlayerSettings:
   cloudProjectId: aa6b1abb-a214-4dad-8769-930f79bc9a86
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
+  projectName: Guardians of the Planet
   organizationId: joe_the_mechanic
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
