@@ -10,6 +10,7 @@ TagManager:
   - Slot
   - Item
   - BackPack
+  - Tree
   layers:
   - Default
   - TransparentFX

@@ -41,7 +41,7 @@ public class Mineral : MonoBehaviour
             GameObject spawnedItem = Instantiate(dropItem, spawnPosition, Quaternion.identity);
 
             // 設置掉落物的 Layer 為 "Item"
-            spawnedItem.tag = "Item";
+            //spawnedItem.tag = "Item";
         }
     }
 

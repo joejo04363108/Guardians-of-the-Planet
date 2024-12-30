@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class ItemPicker : MonoBehaviour
 {
-    public float pickUpRange = 2.0f; // 可剪取範圍
+    public GameObject player;   
+    public float pickUpRange = 2.0f; 
     public LayerMask itemLayer; // 設置物品的層
     private GameObject currentItem; // 當前可剪取的物品
 

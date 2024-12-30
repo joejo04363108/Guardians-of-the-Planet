@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class OpenCanvasOnKeyPress : MonoBehaviour
 {
     public GameObject canvas; // 要開啟的 UI 或物件
     private bool isCanvasActive = false;
+    public KeyCode Keyboard; 
 
     void Start()
     {
@@ -17,7 +19,7 @@ public class OpenCanvasOnKeyPress : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(Keyboard))
         {
             // 切換 Canvas 的顯示狀態
             isCanvasActive = !isCanvasActive;
