@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2807722438316314786}
   - component: {fileID: 5559722473728430901}
   m_Layer: 0
-  m_Name: Ores
+  m_Name: "\u7926\u7269prefab"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

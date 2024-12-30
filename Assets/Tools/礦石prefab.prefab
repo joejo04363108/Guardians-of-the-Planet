@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1641775580995141631}
   - component: {fileID: 4354094564058731563}
   m_Layer: 0
-  m_Name: Ores_
-  m_TagString: Ore
+  m_Name: "\u7926\u77F3prefab"
+  m_TagString: Item_ore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

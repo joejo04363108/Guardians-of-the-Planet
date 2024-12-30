@@ -6,7 +6,7 @@ public class pick_middle : MonoBehaviour
     public float pickUpRange = 2.0f; //撿取範圍
     private GameObject currentItem; //當前可撿取的物品
 
-    public string name_;
+    public string Tag_Name;
 
     public Timer timer;
 
@@ -25,7 +25,7 @@ public class pick_middle : MonoBehaviour
         currentItem = null;
         float closestDistance = pickUpRange;
 
-        GameObject[] items = GameObject.FindGameObjectsWithTag(name_);
+        GameObject[] items = GameObject.FindGameObjectsWithTag(Tag_Name);
         foreach (GameObject item in items)
         {
             float distance = Vector3.Distance(player.transform.position, item.transform.position); // 使用玩家的位置進行距離計算

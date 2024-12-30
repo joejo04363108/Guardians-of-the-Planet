@@ -15,7 +15,7 @@ public class RevealTree : MonoBehaviour
 
         //玩家手上的樹
         bool has_tree = false;
-        if(backPack.slots[15].transform.childCount > 0){
+        if(backPack.slots[15] != null &&backPack.slots[15].transform.childCount > 0){
             foreach (Transform child in backPack.slots[15].transform){
                  if (child.CompareTag("Tree")){
                     has_tree = true;
@@ -38,7 +38,11 @@ public class RevealTree : MonoBehaviour
 
         foreach (Transform child in backPack.slots[15].transform){
             if (child.CompareTag("Tree")){
+                //backPack.slots[15] = backPack.slots[20];
+                //backPack.UpdateBackPack(null, 15);
+                backPack.prefabs[15] = null;
                 Destroy(child.gameObject);
+                
             }
         }
         // 移除玩家手上的樹

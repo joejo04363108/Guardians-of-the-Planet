@@ -11,6 +11,8 @@ TagManager:
   - Item
   - BackPack
   - Tree
+  - Item_tree
+  - Item_ore
   layers:
   - Default
   - TransparentFX
