@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+
 public class swordController : MonoBehaviour
 {
     public GameObject sword_attack_side;
@@ -10,13 +10,19 @@ public class swordController : MonoBehaviour
     public GameObject idle_side;
     public GameObject idle_down;
     public GameObject idle_up;
+    public GameObject walk_side;
+    public GameObject walk_down;
+    public GameObject walk_up;
+
+    private GameObject currentAnimation; // 記錄當前播放的動畫
 
     private Vector2 movement;         // 儲存移動方向
-    private string lastAnimation = "sword_attack_side"; // 記錄最後的移動方向
+    private string lastAnimation = "sword_attack_side"; // 記錄最後的攻擊方向
+    private string lastIdle = "idle_side";             // 記錄最後的閒置方向
     private bool isAttacking = false; // 記錄是否正在攻擊
     private bool facingLeft = false;  // 記錄角色面向方向
 
-    private void Start()
+    public void Start()
     {
         // 確保默認狀態
         DeactivateAllAnimations();
@@ -25,16 +31,15 @@ public class swordController : MonoBehaviour
 
     void Update()
     {
-        // 如果正在攻擊，不切換動畫
-        if (!isAttacking)
-        {
-            // 取得輸入
-            movement.x = Input.GetAxisRaw("Horizontal"); // 左右
-            movement.y = Input.GetAxisRaw("Vertical");   // 上下
+        // 如果正在攻擊，不執行其他動畫
+        if (isAttacking) return;
 
-            // 根據輸入更新動畫
-            UpdateAnimation();
-        }
+        // 取得輸入
+        movement.x = Input.GetAxisRaw("Horizontal"); // 左右
+        movement.y = Input.GetAxisRaw("Vertical");   // 上下
+
+        // 根據輸入更新動畫
+        UpdateAnimation();
 
         // 按下滑鼠左鍵觸發攻擊
         if (Input.GetMouseButtonDown(0))
@@ -45,44 +50,76 @@ public class swordController : MonoBehaviour
 
     void UpdateAnimation()
     {
-        // 如果正在攻擊，跳過閒置動畫
-        if (isAttacking) return;
+        GameObject newAnimation = null;
 
-        if (movement.x > 0) // 向右移動
+        if (movement.magnitude > 0) // 檢查是否有移動
         {
-            facingLeft = false;
-            idle_side.SetActive(true);
-            idle_down.SetActive(false);
-            idle_up.SetActive(false);
-            FlipCharacter(false);
-            lastAnimation = "sword_attack_side";
-        }
-        else if (movement.x < 0) // 向左移動
-        {
-            facingLeft = true;
-            idle_side.SetActive(true);
-            idle_down.SetActive(false);
-            idle_up.SetActive(false);
-            FlipCharacter(true);
-            lastAnimation = "sword_attack_side";
-        }
-        else if (movement.y > 0) // 向上移動
-        {
-            idle_side.SetActive(false);
-            idle_down.SetActive(false);
-            idle_up.SetActive(true);
-            lastAnimation = "sword_attack_up";
-        }
-        else if (movement.y < 0) // 向下移動
-        {
-            idle_side.SetActive(false);
-            idle_down.SetActive(true);
-            idle_up.SetActive(false);
-            lastAnimation = "sword_attack_down";
+            if (movement.x > 0) // 向右移動
+            {
+                facingLeft = false;
+                newAnimation = walk_side;
+                lastIdle = "idle_side";
+                lastAnimation = "sword_attack_side";
+            }
+            else if (movement.x < 0) // 向左移動
+            {
+                facingLeft = true;
+                newAnimation = walk_side;
+                lastIdle = "idle_side";
+                lastAnimation = "sword_attack_side";
+            }
+            else if (movement.y > 0) // 向上移動
+            {
+                newAnimation = walk_up;
+                lastIdle = "idle_up";
+                lastAnimation = "sword_attack_up";
+            }
+            else if (movement.y < 0) // 向下移動
+            {
+                newAnimation = walk_down;
+                lastIdle = "idle_down";
+                lastAnimation = "sword_attack_down";
+            }
         }
         else
         {
-            //idle_side.SetActive(true);
+            // 停止移動，播放閒置動畫
+            PlayIdleAnimation();
+            return;
+        }
+
+        // 切換到新的動畫
+        if (currentAnimation != newAnimation)
+        {
+            DeactivateAllAnimations();
+            currentAnimation = newAnimation;
+            currentAnimation.SetActive(true);
+
+            // 如果是側面動畫，處理翻轉
+            if (currentAnimation == walk_side)
+            {
+                FlipCharacter(facingLeft);
+            }
+        }
+
+    }
+
+    void PlayIdleAnimation()
+    {
+        DeactivateAllAnimations(); // 停用其他動畫
+        currentAnimation = null;
+        switch (lastIdle)
+        {
+            case "idle_side":
+                idle_side.SetActive(true);
+                FlipCharacter(facingLeft);
+                break;
+            case "idle_down":
+                idle_down.SetActive(true);
+                break;
+            case "idle_up":
+                idle_up.SetActive(true);
+                break;
         }
     }
 
@@ -99,7 +136,7 @@ public class swordController : MonoBehaviour
         {
             case "sword_attack_side":
                 sword_attack_side.SetActive(true);
-                FlipCharacter(facingLeft); // 根據方向翻轉角色
+                FlipCharacter(facingLeft);
                 break;
             case "sword_attack_down":
                 sword_attack_down.SetActive(true);
@@ -118,19 +155,8 @@ public class swordController : MonoBehaviour
         // 停用所有動畫
         DeactivateAllAnimations();
 
-        // 返回對應的閒置動畫
-        switch (lastAnimation)
-        {
-            case "sword_attack_side":
-                idle_side.SetActive(true);
-                break;
-            case "sword_attack_down":
-                idle_down.SetActive(true);
-                break;
-            case "sword_attack_up":
-                idle_up.SetActive(true);
-                break;
-        }
+        // 播放對應的閒置動畫
+        PlayIdleAnimation();
 
         // 重置攻擊狀態
         isAttacking = false;
@@ -144,6 +170,9 @@ public class swordController : MonoBehaviour
         idle_side.SetActive(false);
         idle_down.SetActive(false);
         idle_up.SetActive(false);
+        walk_side.SetActive(false);
+        walk_down.SetActive(false);
+        walk_up.SetActive(false);
     }
 
     void FlipCharacter(bool faceLeft)

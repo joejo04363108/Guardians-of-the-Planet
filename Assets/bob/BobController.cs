@@ -6,9 +6,11 @@ public class BobController : MonoBehaviour
     public GameObject bow;
     public GameObject one;
     public GameObject sword;
+    public string msg;
 
     public float moveSpeed = 5f;
     private Vector2 movement;
+    private string currentTag = "none"; // 當前觸發的 Tag
     private void Start()
     {
         // 確保默認狀態
@@ -30,7 +32,7 @@ public class BobController : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");   // 上下
 
         // 按鍵切換狀態
-        if (Input.GetKeyDown(KeyCode.E))
+        /*if (Input.GetKeyDown(KeyCode.E))
         {
             if (currentState == ActionState.SwordAnimation)
             {
@@ -68,12 +70,54 @@ public class BobController : MonoBehaviour
             case ActionState.BowAnimation:
                 PlayBowAnimation();
                 break;
+        }*/
+        // 檢查按鍵來觸發 Tag 動作
+        if (Input.GetKeyDown(KeyCode.Alpha1)) // 按下鍵盤上的 "1"
+        {
+
+            TriggerActionByTag("sword");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) // 按下鍵盤上的 "2"（可擴展）
+        {
+            TriggerActionByTag("bow");
+        }
+
+        // 執行對應的函式
+        switch (currentTag)
+        {
+            case "sword":
+                PlaySwordAnimation();
+                break;
+            case "bow":
+                PlayBowAnimation();
+                break;
+            default:
+                NormalAction();
+                break;
         }
     }
     void FixedUpdate()
     {
         // 移動角色
         transform.Translate(movement * moveSpeed * Time.deltaTime);
+    }
+
+    // 根據 Tag 觸發對應的動作
+    private void TriggerActionByTag(string tag)
+    {
+        if (sword.CompareTag(tag))
+        {
+            currentTag = "sword";
+        }
+        else if (bow.CompareTag(tag))
+        {
+            currentTag = "bow";
+        }
+        else
+        {
+            currentTag = "none";
+        }
+        Debug.Log("Current action triggered by tag: " + currentTag);
     }
     private void NormalAction()
     {
@@ -89,7 +133,7 @@ public class BobController : MonoBehaviour
         sword.SetActive(false);
 
     }
-    private void PlaySwordAnimation()
+    public void PlaySwordAnimation()
     {
         bow.SetActive(false);
         one.SetActive(false);
