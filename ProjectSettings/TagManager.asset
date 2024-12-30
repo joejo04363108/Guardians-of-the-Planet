@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - ItemDrop
+  - bob
+  - Ore
+  - Slot
+  - Item
+  - BackPack
+  - Tree
+  - Item_tree
+  - Item_ore
   layers:
   - Default
   - TransparentFX
@@ -12,7 +20,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - Item
   - 
   - 
   - 
