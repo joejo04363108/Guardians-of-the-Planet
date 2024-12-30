@@ -3,31 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - ItemDrop
-  - bob
-<<<<<<< HEAD
-  - sword
-  - hammer
-  - gun
-  - Injection
-=======
-  - Ore
-  - Slot
-  - Item
-  - BackPack
-  - Tree
-  - Item_tree
-  - Item_ore
->>>>>>> 9171c1883149a0dd792e0ac27f3f69c74345b77e
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - Item
+  - 
   - 
   - 
   - 
