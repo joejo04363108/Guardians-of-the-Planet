@@ -258,7 +258,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac6908b07328714b820d19ed47b3e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Text/Text5.unity
+=======
   name: Text
+>>>>>>> 9171c1883149a0dd792e0ac27f3f69c74345b77e:Assets/Text/Talk1.unity
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

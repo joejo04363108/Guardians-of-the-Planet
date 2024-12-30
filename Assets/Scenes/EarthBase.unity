@@ -12921,7 +12921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetScene: 
-  delayTime: 2
+  triggerTime: 1
 --- !u!1 &959568452
 GameObject:
   m_ObjectHideFlags: 0
@@ -12954,7 +12954,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetScene: TestScene2
-  delayTime: 2
+  triggerTime: 1
 --- !u!58 &959568454
 CircleCollider2D:
   m_ObjectHideFlags: 0

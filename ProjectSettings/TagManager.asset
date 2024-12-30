@@ -6,6 +6,12 @@ TagManager:
   tags:
   - ItemDrop
   - bob
+<<<<<<< HEAD
+  - sword
+  - hammer
+  - gun
+  - Injection
+=======
   - Ore
   - Slot
   - Item
@@ -13,6 +19,7 @@ TagManager:
   - Tree
   - Item_tree
   - Item_ore
+>>>>>>> 9171c1883149a0dd792e0ac27f3f69c74345b77e
   layers:
   - Default
   - TransparentFX
