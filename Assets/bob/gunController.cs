@@ -13,6 +13,8 @@ public class gunController : MonoBehaviour
     public GameObject walk_side;
     public GameObject walk_down;
     public GameObject walk_up;
+    public GameObject bulletPrefab;
+    public Transform firePoint;     // 子彈生成點
 
     private GameObject currentAnimation; // 記錄當前播放的動畫
 
@@ -41,15 +43,35 @@ public class gunController : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");   // 上下
 
 
-        UpdateAnimation();
-
         // 根據輸入更新動畫
-        //UpdateAnimation();
+        UpdateAnimation();
 
         // 按下滑鼠左鍵觸發攻擊
         if (Input.GetMouseButtonDown(0))
         {
+            DetermineAttackDirection();
             PlayAttackAnimation();
+            Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);  //產生子彈
+        }
+    }
+
+    void UpdateFirePointPosition()
+    {
+        // 重設 firePoint 的位置和旋轉
+        switch (lastAnimation)
+        {
+            case "rifle_side":
+                firePoint.localPosition = new Vector3(facingLeft ? -1.4f : -1.4f, -0.5f, 0f); // 左右位置
+                firePoint.localRotation = Quaternion.Euler(0, facingLeft ? 180 : 0, 0);   // 根據方向翻轉
+                break;
+            case "rifle_down":
+                firePoint.localPosition = new Vector3(0f, -1.7f, 0f); // 向下位置
+                firePoint.localRotation = Quaternion.Euler(0, 0, -90); // 向下旋轉
+                break;
+            case "rifle_up":
+                firePoint.localPosition = new Vector3(0f, 1.1f, 0f);  // 向上位置
+                firePoint.localRotation = Quaternion.Euler(0, 0, 90); // 向上旋轉
+                break;
         }
     }
 
@@ -105,9 +127,53 @@ public class gunController : MonoBehaviour
             {
                 FlipCharacter(facingLeft);
             }
+
+            // 更新 firePoint 的位置
+            UpdateFirePointPosition();
         }
 
     }
+    private void DetermineAttackDirection()
+    {
+        // 獲取角色和鼠標的世界位置
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 characterPosition = transform.position;
+
+        // 計算鼠標與角色的相對方向
+        Vector3 direction = mousePosition - characterPosition;
+
+        // 根據方向判斷攻擊方向
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            // 水平優先
+            if (direction.x > 0)
+            {
+                lastAnimation = "rifle_side";
+                facingLeft = false; // 向右
+            }
+            else
+            {
+                lastAnimation = "rifle_side";
+                facingLeft = true; // 向左
+            }
+        }
+        else
+        {
+            // 垂直優先
+            if (direction.y > 0)
+            {
+                lastAnimation = "rifle_up";
+            }
+            else
+            {
+                lastAnimation = "rifle_down";
+            }
+        }
+
+        // 更新 firePoint 的位置
+        UpdateFirePointPosition();
+    }
+
 
     public void PlayIdleAnimation()
     {
@@ -150,6 +216,9 @@ public class gunController : MonoBehaviour
                 rifle_up.SetActive(true);
                 break;
         }
+
+        // 更新 firePoint 的位置
+        UpdateFirePointPosition();
 
         // 在觸發攻擊後添加計時器以恢復閒置動畫
         Invoke("ResetToIdle", 0.4f); // 0.4 秒後返回閒置狀態
