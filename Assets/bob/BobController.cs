@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BobController : MonoBehaviour
 {
-    public GameObject bow;
+    public GameObject gun;
     public GameObject one;
     public GameObject sword;
     public GameObject hammer;
@@ -14,7 +14,7 @@ public class BobController : MonoBehaviour
     private void Start()
     {
         // 確保默認狀態
-        bow.SetActive(false);
+        gun.SetActive(false);
         sword.SetActive(false);
         one.SetActive(true);
         hammer.SetActive(false);
@@ -80,7 +80,7 @@ public class BobController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha7)) // 按下鍵盤上的 "2"（可擴展）
         {
-            TriggerActionByTag("bow");
+            TriggerActionByTag("gun");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha8))
         {
@@ -93,8 +93,8 @@ public class BobController : MonoBehaviour
             case "sword":
                 PlaySwordAnimation();
                 break;
-            case "bow":
-                PlayBowAnimation();
+            case "gun":
+                PlayGunAnimation();
                 break;
             case "hammer":
                 PlayHammerAnimation();
@@ -123,9 +123,9 @@ public class BobController : MonoBehaviour
         {
             currentTag = "sword";
         }
-        else if (bow.CompareTag(tag))
+        else if (gun.CompareTag(tag))
         {
-            currentTag = "bow";
+            currentTag = "gun";
         }
         else if (hammer.CompareTag(tag))
         {
@@ -139,29 +139,28 @@ public class BobController : MonoBehaviour
     }
     private void NormalAction()
     {
-        bow.SetActive(false);
+        gun.SetActive(false);
         one.SetActive(true);
         sword.SetActive(false);
         hammer.SetActive(false);
     }
-    private void PlayBowAnimation()
+    public void PlayGunAnimation()
     {
-        // 切換到 bow_side
-        bow.SetActive(true);
+        gun.SetActive(true);
         one.SetActive(false);
         sword.SetActive(false);
         hammer.SetActive(false);
     }
     public void PlaySwordAnimation()
     {
-        bow.SetActive(false);
+        gun.SetActive(false);
         one.SetActive(false);
         sword.SetActive(true);
         hammer.SetActive(false);
     }
     public void PlayHammerAnimation()
     {
-        bow.SetActive(false);
+        gun.SetActive(false);
         one.SetActive(false);
         sword.SetActive(false);
         hammer.SetActive(true);
