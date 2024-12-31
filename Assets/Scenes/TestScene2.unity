@@ -1224,8 +1224,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0761981, y: -0.3275113}
-  m_Size: {x: 1.689117, y: 2.0720782}
+  m_Offset: {x: 0.04118049, y: -0.34852183}
+  m_Size: {x: 1.5350394, y: 1.9460149}
   m_Direction: 0
 --- !u!50 &769634965
 Rigidbody2D:
@@ -3053,6 +3053,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1814045405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1814045406}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1814045406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814045405}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1959179831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1842022412 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4423223292004880406, guid: 1925606a9f70496e8b4dc5b154015543, type: 3}
@@ -3110,7 +3141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54106b3b122a4a49b6ae0ac9d39064d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   slide_side: {fileID: 536803190}
   slide_down: {fileID: 173627389}
   slide_up: {fileID: 380056645}
@@ -3209,6 +3239,8 @@ MonoBehaviour:
   walk_side: {fileID: 979199781}
   walk_down: {fileID: 30038820}
   walk_up: {fileID: 1651559739}
+  bulletPrefab: {fileID: 1841226223972534045, guid: f29b05ef481148449862ee37938f3213, type: 3}
+  firePoint: {fileID: 1814045406}
   isactive: 0
 --- !u!4 &1959179831
 Transform:
@@ -3232,6 +3264,7 @@ Transform:
   - {fileID: 931037513}
   - {fileID: 233255384}
   - {fileID: 688242396}
+  - {fileID: 1814045406}
   m_Father: {fileID: 769634963}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1964940495
