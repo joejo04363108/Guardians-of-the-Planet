@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BackPack : MonoBehaviour
 {
-    public GameObject[] slots = new GameObject[20];  
-    public GameObject[] trade = new GameObject[20];  
+    public GameObject[] slots = new GameObject[25];  
+    public GameObject[] trade = new GameObject[25];  
     //public GameObject[] toolbar = new GameObject[5];
-    public GameObject[] prefabs = new GameObject[20];
+    public GameObject[] prefabs = new GameObject[25];
     //public GameObject[] toolbar_prefabs = new GameObject[5];
 
     void Start()
