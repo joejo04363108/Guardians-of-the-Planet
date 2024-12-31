@@ -103,7 +103,7 @@ public class BobController : MonoBehaviour
     }
 
     // 根據 Tag 觸發對應的動作
-    private void TriggerActionByTag(string tag)
+    public void TriggerActionByTag(string tag)
     {
         if (sword.CompareTag(tag))
         {

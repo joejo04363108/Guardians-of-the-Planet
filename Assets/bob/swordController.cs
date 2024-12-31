@@ -22,6 +22,8 @@ public class swordController : MonoBehaviour
     private bool isAttacking = false; // 記錄是否正在攻擊
     private bool facingLeft = false;  // 記錄角色面向方向
 
+    public bool isactive = false;
+
     public void Start()
     {
         // 確保默認狀態
@@ -38,8 +40,11 @@ public class swordController : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal"); // 左右
         movement.y = Input.GetAxisRaw("Vertical");   // 上下
 
-        // 根據輸入更新動畫
+        
         UpdateAnimation();
+    
+        // 根據輸入更新動畫
+        //UpdateAnimation();
 
         // 按下滑鼠左鍵觸發攻擊
         if (Input.GetMouseButtonDown(0))
@@ -48,7 +53,7 @@ public class swordController : MonoBehaviour
         }
     }
 
-    void UpdateAnimation()
+    public void UpdateAnimation()
     {
         GameObject newAnimation = null;
 
@@ -104,7 +109,7 @@ public class swordController : MonoBehaviour
 
     }
 
-    void PlayIdleAnimation()
+    public void PlayIdleAnimation()
     {
         DeactivateAllAnimations(); // 停用其他動畫
         currentAnimation = null;

@@ -2,47 +2,38 @@ using UnityEngine;
 
 public class aController : MonoBehaviour
 {
-    public void SendMessageToSword()
+    private string msg;
+    public void SendMessageToBob()
     {
-        Debug.Log("開始尋找物件 B");
+        // 找到具有 Tag "btag" 的物件
         GameObject bObject = GameObject.FindWithTag("bob");
         if (bObject != null)
         {
-            Debug.Log("找到物件 B：" + bObject.name);
-
-            Transform swordTransform = bObject.transform.Find("sword");
-            if (swordTransform != null)
+            // 獲取 bObject 的 bController 腳本
+            BobController bScript = bObject.GetComponent<BobController>();
+            if (bScript != null)
             {
-                Debug.Log("找到子物件 sword：" + swordTransform.name);
-
-                swordController swordScript = swordTransform.GetComponent<swordController>();
-                if (swordScript != null)
-                {
-                    Debug.Log("找到子物件的腳本，執行動作！");
-                    swordScript.Start();
-                }
-                else
-                {
-                    Debug.LogWarning("swordController 腳本未找到！");
-                }
+                msg = "sword";
+                // 呼叫 bController 中的執行方法
+                bScript.TriggerActionByTag(msg);
             }
             else
             {
-                Debug.LogWarning("未找到子物件 'sword'！");
+                Debug.LogWarning("bController 腳本未找到！");
             }
         }
         else
         {
-            Debug.LogWarning("未找到 Tag 為 'btag' 的物件！");
+            Debug.LogWarning("未找到 Tag 為 'bob' 的物件！");
         }
     }
 
     private void Update()
     {
-        // 測試：按下空白鍵發送訊息給 B 的子物件
-        if (Input.GetKeyDown(KeyCode.L))
+        // 測試：按下空白鍵發送訊息
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            SendMessageToSword();
+            SendMessageToBob();
         }
     }
 }
