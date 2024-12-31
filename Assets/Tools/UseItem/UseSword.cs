@@ -1,33 +1,34 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-
-public class UseTree : MonoBehaviour
+public class UseSword : MonoBehaviour
 {
-    public GameObject hiddenTree; // 隱藏的樹
-    //public GameObject playerHandTree; // 玩家手上的樹
-    public Transform player; // 玩家 Transform
 
-    public float revealDistance = 2f; // 顯示距離
+    public BobController player;
     public BackPack backPack;
-
-    bool has_tree = false;
-    float distance;
-    void Update(){
-        // 計算玩家與隱藏樹的距離
-        distance = Vector3.Distance(player.position, hiddenTree.transform.position);
-
-        //玩家手上的樹
-        Detect_key("Tree");
+    bool has_sword = false;
+    public bool use_sword = false;
+    public string tag;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 
-    void Detect_key(string tag){
+    // Update is called once per frame
+    void Update()
+    {
+        Detect_key(tag);
+    }
+
+     void Detect_key(string tag){
         int item_index = 0;
         for(int i = 15; i <= 19; i++){
             if(backPack.slots[i] != null && backPack.slots[i].transform.childCount > 0){
                 foreach (Transform child in backPack.slots[i].transform){
                     if (child.CompareTag(tag)){
-                        has_tree = true;
+                        has_sword = true;
                         item_index = i - 14;
                     }
                 }
@@ -49,25 +50,21 @@ public class UseTree : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha5) && item_index == 5){
             Run(5,tag);
         }
-        
-
     }
-    
+
     void Run(int num, string tag){
         //Debug.Log(distance);
-        if(distance <= revealDistance && has_tree){
-            // 顯示隱藏的樹
-            hiddenTree.SetActive(true);
-
-            foreach (Transform child in backPack.slots[num+14].transform){
-                if (child.CompareTag(tag)){
-                    backPack.prefabs[num+14] = null;
-                    Destroy(child.gameObject);
-                    
-                }
-            }
-            Debug.Log("隱藏的樹已顯示，玩家手上的樹已移除！");
+        if(use_sword && has_sword){
+            player.TriggerActionByTag("none");
+            use_sword = false;
+            return;
         }
-    }
+        if(has_sword){
+            // 顯示隱藏的樹
+            player.TriggerActionByTag("sword");
+            use_sword = true;
+        }
         
+    }
+
 }
