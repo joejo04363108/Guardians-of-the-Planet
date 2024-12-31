@@ -47,7 +47,7 @@ public class hammerController : MonoBehaviour
         //UpdateAnimation();
 
         // 按下滑鼠左鍵觸發攻擊
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             PlayAttackAnimation();
         }

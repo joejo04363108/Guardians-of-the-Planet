@@ -20,6 +20,7 @@ TagManager:
   - item_tree
   - item_ore
   - gun
+  - slide
   layers:
   - Default
   - TransparentFX

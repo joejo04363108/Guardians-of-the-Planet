@@ -7,10 +7,13 @@ public class BobController : MonoBehaviour
     public GameObject one;
     public GameObject sword;
     public GameObject hammer;
+    public GameObject slide;
 
     public float moveSpeed = 5f;
     private Vector2 movement;
     private string currentTag = "none"; // 當前觸發的 Tag
+    private string previousTag = "none"; // 保存滑行前的動畫
+    private bool isSliding = false; // 是否正在執行滑行動畫
     private void Start()
     {
         // 確保默認狀態
@@ -18,16 +21,17 @@ public class BobController : MonoBehaviour
         sword.SetActive(false);
         one.SetActive(true);
         hammer.SetActive(false);
+        slide.SetActive(false);
     }
-    private enum ActionState
+    /*private enum ActionState
     {
         Normal,
         SwordAnimation,
         BowAnimation,
         HammerAnimation
-    }
+    }*/
 
-    private ActionState currentState = ActionState.Normal; // 初始狀態
+    //private ActionState currentState = ActionState.Normal; // 初始狀態
     private void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal"); // 左右
@@ -87,6 +91,11 @@ public class BobController : MonoBehaviour
             TriggerActionByTag("hammer");
         }
 
+        if (Input.GetKeyDown(KeyCode.E) && !isSliding)     //滑鏟
+        {
+            TriggerActionByTag("slide");
+        }
+
         // 執行對應的函式
         switch (currentTag)
         {
@@ -98,6 +107,9 @@ public class BobController : MonoBehaviour
                 break;
             case "hammer":
                 PlayHammerAnimation();
+                break;
+            case "slide":
+                PlaySlideAnimation();
                 break;
             default:
                 NormalAction();
@@ -131,6 +143,11 @@ public class BobController : MonoBehaviour
         {
             currentTag = "hammer";
         }
+        else if (slide.CompareTag(tag))
+        {
+            previousTag = currentTag; // 記錄當前動畫
+            currentTag = "slide";
+        }
         else
         {
             currentTag = "none";
@@ -143,6 +160,7 @@ public class BobController : MonoBehaviour
         one.SetActive(true);
         sword.SetActive(false);
         hammer.SetActive(false);
+        slide.SetActive(false);
     }
     public void PlayGunAnimation()
     {
@@ -150,6 +168,7 @@ public class BobController : MonoBehaviour
         one.SetActive(false);
         sword.SetActive(false);
         hammer.SetActive(false);
+        slide.SetActive(false);
     }
     public void PlaySwordAnimation()
     {
@@ -157,6 +176,7 @@ public class BobController : MonoBehaviour
         one.SetActive(false);
         sword.SetActive(true);
         hammer.SetActive(false);
+        slide.SetActive(false);
     }
     public void PlayHammerAnimation()
     {
@@ -164,6 +184,29 @@ public class BobController : MonoBehaviour
         one.SetActive(false);
         sword.SetActive(false);
         hammer.SetActive(true);
+        slide.SetActive(false);
+    }
+
+    public void PlaySlideAnimation()
+    {
+        isSliding = true;
+        gun.SetActive(false);
+        one.SetActive(false);
+        sword.SetActive(false);
+        hammer.SetActive(false);
+        slide.SetActive(true);
+        transform.Translate(movement * moveSpeed * Time.deltaTime*2);
+        // 啟動協程，延遲返回上一動畫
+        StartCoroutine(ReturnToPreviousAnimation(0.4f));
+    }
+    private IEnumerator ReturnToPreviousAnimation(float delay)
+    {
+        yield return new WaitForSeconds(delay); // 等待指定的時間
+
+        // 返回到上一個動畫
+        TriggerActionByTag(previousTag);
+
+        isSliding = false;
     }
 
     private static BobController instance;
