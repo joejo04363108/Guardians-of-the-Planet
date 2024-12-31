@@ -72,12 +72,12 @@ public class BobController : MonoBehaviour
                 break;
         }*/
         // 檢查按鍵來觸發 Tag 動作
-        if (Input.GetKeyDown(KeyCode.Alpha1)) // 按下鍵盤上的 "1"
+        if (Input.GetKeyDown(KeyCode.Alpha6)) // 按下鍵盤上的 "1"
         {
 
             TriggerActionByTag("sword");
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2)) // 按下鍵盤上的 "2"（可擴展）
+        else if (Input.GetKeyDown(KeyCode.Alpha7)) // 按下鍵盤上的 "2"（可擴展）
         {
             TriggerActionByTag("bow");
         }
@@ -105,6 +105,12 @@ public class BobController : MonoBehaviour
     // 根據 Tag 觸發對應的動作
     public void TriggerActionByTag(string tag)
     {
+        if(tag == "none"){
+            currentTag = "none";
+            Debug.Log("Current action triggered by tag: " + currentTag);
+            return;
+        }
+
         if (sword.CompareTag(tag))
         {
             currentTag = "sword";

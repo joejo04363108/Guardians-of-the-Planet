@@ -8,7 +8,7 @@ public class TextsScript : MonoBehaviour
     // Start is called before the first frame update
     FlowerSystem flowerSys;
     bool game = true;
-    string name = "Text";
+    string textname = "Text";
 
     bool isGameEnd = false;
     void Start()
@@ -22,7 +22,7 @@ public class TextsScript : MonoBehaviour
     void Update()
     {
         if(game){
-            flowerSys.ReadTextFromResource(name);
+            flowerSys.ReadTextFromResource(textname);
             game = false;
         }
         
