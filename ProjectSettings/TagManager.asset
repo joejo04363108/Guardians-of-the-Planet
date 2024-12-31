@@ -12,7 +12,17 @@ TagManager:
   - Ore
   - sword
   - item_sword
+<<<<<<< Updated upstream
   - hammer
+=======
+  - item_hammer
+  - item_bread
+  - item_wheel
+  - item_gun2
+  - item_gun1
+  - item_tree
+  - item_ore
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
