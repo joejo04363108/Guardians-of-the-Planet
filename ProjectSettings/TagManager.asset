@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - bob
+  - Item_tree
+  - Item_ore
+  - Slot
+  - Tree
+  - Ore
+  - sword
+  - item_sword
   layers:
   - Default
   - TransparentFX
