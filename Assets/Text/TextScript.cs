@@ -8,7 +8,7 @@ public class TextsScript : MonoBehaviour
     // Start is called before the first frame update
     FlowerSystem flowerSys;
     bool game = true;
-    string textname = "Text";
+    public string textname = "Text";
 
     bool isGameEnd = false;
     void Start()
