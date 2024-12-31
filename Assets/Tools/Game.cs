@@ -3,30 +3,22 @@ using UnityEngine;
 public class MineralCollector : MonoBehaviour
 {
     public GameObject player;         // 玩家物件
-    //public Inventory playerInventory; // 玩家物品欄
     public float collectDistance = 3f; // 採集距離
 
     private GameObject targetMineral; // 當前可採集的礦物
-
+    public BackPack backPack;
+    public LightBar lightBar;
+    public UseHammer useHammer;
     void Update()
     {
         // 檢測玩家附近是否有礦物
         DetectMineral();
 
-        // 如果有可採集礦物且按下 F
-        if (targetMineral != null && Input.GetKeyDown(KeyCode.J))
+        // 如果有可採集礦物且按下 J
+        if (targetMineral != null && Input.GetMouseButtonDown(0) && useHammer.use_hammer == true)
         {
-            /*
-            if (playerInventory.HasItem("Pickaxe"))
-            {
-                CollectMineral(targetMineral);
-            }
-            else
-            {
-                Debug.Log("你需要十字稿才能採集這個礦物！");
-            }
-            */
-            CollectMineral(targetMineral);
+            Invoke("CollectMineral", 0.5f);
+            lightBar.subLight(1);
         }
     }
 
@@ -52,14 +44,14 @@ public class MineralCollector : MonoBehaviour
     }
 
     // 採集礦物邏輯
-    void CollectMineral(GameObject mineral)
+    void CollectMineral()
     {
-         if (mineral == null) return;
+         if (targetMineral == null) return;
 
-        Debug.Log("成功採集礦物：" + mineral.name);
+        Debug.Log("成功採集礦物：" + targetMineral.name);
 
         // 獲取礦物的 Mineral 腳本，並執行 Break()
-        Mineral mineralScript = mineral.GetComponent<Mineral>();
+        Mineral mineralScript = targetMineral.GetComponent<Mineral>();
         if (mineralScript != null)
         {
             mineralScript.Break();
