@@ -6,7 +6,7 @@ public class BobController : MonoBehaviour
     public GameObject bow;
     public GameObject one;
     public GameObject sword;
-    public string msg;
+    public GameObject hammer;
 
     public float moveSpeed = 5f;
     private Vector2 movement;
@@ -17,12 +17,14 @@ public class BobController : MonoBehaviour
         bow.SetActive(false);
         sword.SetActive(false);
         one.SetActive(true);
+        hammer.SetActive(false);
     }
     private enum ActionState
     {
         Normal,
         SwordAnimation,
-        BowAnimation
+        BowAnimation,
+        HammerAnimation
     }
 
     private ActionState currentState = ActionState.Normal; // 初始狀態
@@ -74,12 +76,15 @@ public class BobController : MonoBehaviour
         // 檢查按鍵來觸發 Tag 動作
         if (Input.GetKeyDown(KeyCode.Alpha6)) // 按下鍵盤上的 "1"
         {
-
             TriggerActionByTag("sword");
         }
         else if (Input.GetKeyDown(KeyCode.Alpha7)) // 按下鍵盤上的 "2"（可擴展）
         {
             TriggerActionByTag("bow");
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            TriggerActionByTag("hammer");
         }
 
         // 執行對應的函式
@@ -90,6 +95,9 @@ public class BobController : MonoBehaviour
                 break;
             case "bow":
                 PlayBowAnimation();
+                break;
+            case "hammer":
+                PlayHammerAnimation();
                 break;
             default:
                 NormalAction();
@@ -119,6 +127,10 @@ public class BobController : MonoBehaviour
         {
             currentTag = "bow";
         }
+        else if (hammer.CompareTag(tag))
+        {
+            currentTag = "hammer";
+        }
         else
         {
             currentTag = "none";
@@ -130,6 +142,7 @@ public class BobController : MonoBehaviour
         bow.SetActive(false);
         one.SetActive(true);
         sword.SetActive(false);
+        hammer.SetActive(false);
     }
     private void PlayBowAnimation()
     {
@@ -137,14 +150,21 @@ public class BobController : MonoBehaviour
         bow.SetActive(true);
         one.SetActive(false);
         sword.SetActive(false);
-
+        hammer.SetActive(false);
     }
     public void PlaySwordAnimation()
     {
         bow.SetActive(false);
         one.SetActive(false);
         sword.SetActive(true);
-
+        hammer.SetActive(false);
+    }
+    public void PlayHammerAnimation()
+    {
+        bow.SetActive(false);
+        one.SetActive(false);
+        sword.SetActive(false);
+        hammer.SetActive(true);
     }
 
     private static BobController instance;

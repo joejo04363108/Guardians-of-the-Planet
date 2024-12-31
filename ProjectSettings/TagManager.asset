@@ -12,6 +12,7 @@ TagManager:
   - Ore
   - sword
   - item_sword
+  - hammer
   layers:
   - Default
   - TransparentFX

@@ -1022,6 +1022,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2484720028488606647, guid: 1b78c49d211cb5e46bcac7b6adb2ef57, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2525501714961861927, guid: 1b78c49d211cb5e46bcac7b6adb2ef57, type: 3}
       propertyPath: m_SizeDelta.x
       value: -413.4798
@@ -3313,6 +3317,7 @@ MonoBehaviour:
   bow: {fileID: 633403573}
   one: {fileID: 119996468}
   sword: {fileID: 1201676198}
+  hammer: {fileID: 0}
   msg: 
   moveSpeed: 2.5
 --- !u!4 &1651431280
@@ -4811,7 +4816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1831007369649558762, guid: 64b4509797e8a5c409538bb5c7058f42, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1974514505937735956, guid: 64b4509797e8a5c409538bb5c7058f42, type: 3}
       propertyPath: m_SizeDelta.x
