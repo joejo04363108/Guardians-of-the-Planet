@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/AssetsPackage/Inventory System - Kinnly/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Text/Start0.unity
+    guid: cb8a8bc1054ac804e973b6a60f1db438
   - enabled: 1
     path: Assets/Text/Start1.unity
     guid: 30ed133382ccb144c876aeb8e12736d1
@@ -20,12 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Text/Start4.unity
     guid: 92bad92a3f524524987f52ed1e536a7b
-  - enabled: 1
-    path: Assets/Scenes/TestScene2.unity
-    guid: 3a62812d82b99ba41849d9a8af23e02e
-  - enabled: 1
-    path: Assets/Scenes/EarthBase.unity
-    guid: 35752d31000bc9e47831793a8701e904
   - enabled: 1
     path: Assets/Text/Talk1.unity
     guid: dd50387744c7b7149b7a63c971cea576
@@ -42,15 +36,10 @@ EditorBuildSettings:
     path: Assets/Text/BadEnd.unity
     guid: 0a31860a2c0edeb478b61c046e9e6837
   - enabled: 1
-    path: Assets/Text/congratulations.unity
-    guid: ef3708a1b04f69e4a99ec360ae56baba
-  - enabled: 1
     path: Assets/Text/Death.unity
     guid: 18781eb5506a7554598a5d9aaa65ee68
   - enabled: 1
-    path: Assets/Text/fail.unity
-    guid: 7fa26bc30ba239a43a8e94fcb61c853d
-  - enabled: 1
     path: Assets/Text/GoodEnd.unity
     guid: 8e1a9923b3dc71249861df9a400df918
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 159628ae226eda840b84027f0019d6aa, type: 2}
