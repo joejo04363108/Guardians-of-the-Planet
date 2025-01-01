@@ -14,15 +14,16 @@ public class swordController : MonoBehaviour
     public GameObject walk_down;
     public GameObject walk_up;
 
-    private GameObject currentAnimation; // 記錄當前播放的動畫
+    public float attackInterval = 2f;  // 攻擊間隔
+    public float attackRange = 3f;     // 攻擊範圍
+    public LayerMask enemyLayer;       // 敵人所在的圖層
 
-    private Vector2 movement;         // 儲存移動方向
+    private GameObject currentAnimation; // 記錄當前播放的動畫
+    private Vector2 movement;           // 儲存移動方向
     private string lastAnimation = "sword_attack_side"; // 記錄最後的攻擊方向
     private string lastIdle = "idle_side";             // 記錄最後的閒置方向
-    private bool isAttacking = false; // 記錄是否正在攻擊
-    private bool facingLeft = false;  // 記錄角色面向方向
-
-    public bool isactive = false;
+    private bool isAttacking = false;   // 記錄是否正在攻擊
+    private bool facingLeft = false;    // 記錄角色面向方向
 
     public void Start()
     {
@@ -40,16 +41,35 @@ public class swordController : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal"); // 左右
         movement.y = Input.GetAxisRaw("Vertical");   // 上下
 
-        
-        UpdateAnimation();
-    
         // 根據輸入更新動畫
-        //UpdateAnimation();
+        UpdateAnimation();
 
         // 按下滑鼠左鍵觸發攻擊
         if (Input.GetMouseButtonDown(0))
         {
             PlayAttackAnimation();
+            CheckAndDealDamage();
+        }
+    }
+
+    private void CheckAndDealDamage()
+    {
+        // 獲取當前位置
+        Vector2 attackPosition = transform.position;
+
+        // 檢測範圍內的碰撞體
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(attackPosition, attackRange, enemyLayer);
+
+        foreach (Collider2D collider in hitColliders)
+        {
+            if (collider.CompareTag("monster"))
+            {
+                sporeMonsterController enemyController = collider.GetComponent<sporeMonsterController>();
+                if (enemyController != null)
+                {
+                    enemyController.TakeDamage(2); // 對敵人造成傷害
+                }
+            }
         }
     }
 
@@ -106,7 +126,6 @@ public class swordController : MonoBehaviour
                 FlipCharacter(facingLeft);
             }
         }
-
     }
 
     public void PlayIdleAnimation()
@@ -185,5 +204,12 @@ public class swordController : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x = faceLeft ? Mathf.Abs(scale.x) : -Mathf.Abs(scale.x); // 根據方向調整 x 軸縮放
         transform.localScale = scale;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // 可視化攻擊範圍
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

@@ -22,6 +22,8 @@ TagManager:
   - gun
   - slide
   - Tree
+  - hit
+  - monster
   - ore1
   - ore2
   - ore3

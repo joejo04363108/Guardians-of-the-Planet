@@ -16,6 +16,8 @@ public class gunController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;     // 子彈生成點
 
+    public LightBar bar;
+
     private GameObject currentAnimation; // 記錄當前播放的動畫
 
     private Vector2 movement;         // 儲存移動方向
@@ -50,8 +52,12 @@ public class gunController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             DetermineAttackDirection();
-            PlayAttackAnimation();
-            Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);  //產生子彈
+            if(bar.getLight() > 0)
+            {
+                PlayAttackAnimation();
+                Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);  //產生子彈
+            }
+            bar.subLight(2);
         }
     }
 
@@ -65,11 +71,11 @@ public class gunController : MonoBehaviour
                 firePoint.localRotation = Quaternion.Euler(0, facingLeft ? 180 : 0, 0);   // 根據方向翻轉
                 break;
             case "rifle_down":
-                firePoint.localPosition = new Vector3(0f, -1.7f, 0f); // 向下位置
+                firePoint.localPosition = new Vector3(0f, -1.8f, 0f); // 向下位置
                 firePoint.localRotation = Quaternion.Euler(0, 0, -90); // 向下旋轉
                 break;
             case "rifle_up":
-                firePoint.localPosition = new Vector3(0f, 1.1f, 0f);  // 向上位置
+                firePoint.localPosition = new Vector3(0f, 1.2f, 0f);  // 向上位置
                 firePoint.localRotation = Quaternion.Euler(0, 0, 90); // 向上旋轉
                 break;
         }
