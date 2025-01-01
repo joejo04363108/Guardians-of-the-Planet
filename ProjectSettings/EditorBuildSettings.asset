@@ -47,5 +47,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MarsScene.unity
     guid: 8718b5e42d5452345ae2b351cd2ec187
+  - enabled: 1
+    path: Assets/Tools/ToolScene.unity
+    guid: 186c18548b647c145b19cfea65b7a980
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 159628ae226eda840b84027f0019d6aa, type: 2}

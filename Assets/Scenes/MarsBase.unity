@@ -3369,7 +3369,7 @@ GameObject:
   - component: {fileID: 346650329}
   - component: {fileID: 346650328}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: TP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3388,6 +3388,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: MarsScene
+  player: {fileID: 0}
+  box: {fileID: 840365401}
+  x: 0
+  y: 0
+  z: 0
+  revealDistance: 2
 --- !u!224 &346650329
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3712,7 +3718,7 @@ GameObject:
   - component: {fileID: 840365404}
   - component: {fileID: 840365403}
   m_Layer: 0
-  m_Name: Block_01
+  m_Name: box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5399,7 +5405,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -13.853535, y: 4.8806505}
+  m_AnchoredPosition: {x: -13.7, y: 4.8806505}
   m_SizeDelta: {x: 313.7008, y: 176.4566}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2107968317

@@ -4283,7 +4283,7 @@ MonoBehaviour:
   detectRange: 5
   attackRange: 2
   attackInterval: 1
-  moveSpeed: 2
+  moveSpeed: 10
   healthBar: {fileID: 1442422672}
   mons_hp: 0
 --- !u!1 &1959179829
