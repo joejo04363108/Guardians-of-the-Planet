@@ -28,7 +28,7 @@ public class market_button1 : MonoBehaviour
     }
 
     public void Trade(){
-        Debug.Log("111");
+        //Debug.Log("111");
         GameObject slot_item1 , slot_item2, slot_item3;
         slot_item1 = FindChildWithTag(slot1, trade_tag);
         slot_item2 = FindChildWithTag(slot2, trade_tag);

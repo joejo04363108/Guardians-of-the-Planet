@@ -33,7 +33,7 @@ public class SceneSwitcherand_tp : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             float distance = Vector3.Distance(player.transform.position, box.transform.position);
-            Debug.Log(distance);
+            //Debug.Log(distance);
             if(revealDistance >= distance){
                 SwitchSceneByName(targetSceneName);
             }

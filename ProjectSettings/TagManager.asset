@@ -32,6 +32,9 @@ TagManager:
   - ore6
   - ore7
   - vanish
+  - trade1
+  - trade2
+  - Bed
   layers:
   - Default
   - TransparentFX
