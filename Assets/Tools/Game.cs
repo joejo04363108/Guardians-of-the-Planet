@@ -9,16 +9,23 @@ public class MineralCollector : MonoBehaviour
     public BackPack backPack;
     public LightBar lightBar;
     public UseHammer useHammer;
+
+    public string tag_name;
+    public bool is_break = false;
     void Update()
     {
         // 檢測玩家附近是否有礦物
         DetectMineral();
 
+        if(is_break) return;
         // 如果有可採集礦物且按下 J
         if (targetMineral != null && Input.GetMouseButtonDown(0) && useHammer.use_hammer == true)
         {
             Invoke("CollectMineral", 0.5f);
+            //CollectMineral();
+            is_break = true;
             lightBar.subLight(1);
+            
         }
     }
 
@@ -26,7 +33,7 @@ public class MineralCollector : MonoBehaviour
     void DetectMineral()
     {
         // 找出場景中所有帶有 "Mineral" 標籤的物件
-        GameObject[] minerals = GameObject.FindGameObjectsWithTag("Ore");
+        GameObject[] minerals = GameObject.FindGameObjectsWithTag(tag_name);
 
         targetMineral = null; // 初始化為空
         foreach (GameObject mineral in minerals)
