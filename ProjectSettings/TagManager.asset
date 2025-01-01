@@ -8,7 +8,6 @@ TagManager:
   - Item_tree
   - Item_ore
   - Slot
-  - Tree
   - Ore
   - sword
   - item_sword
