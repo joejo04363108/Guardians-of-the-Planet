@@ -31,6 +31,7 @@ TagManager:
   - ore5
   - ore6
   - ore7
+  - vanish
   layers:
   - Default
   - TransparentFX

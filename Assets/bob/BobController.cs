@@ -9,12 +9,16 @@ public class BobController : MonoBehaviour
     public GameObject hammer;
     public GameObject slide;
     public GameObject hit;
+    public GameObject vanish; // 新增消失動畫物件
 
     public float moveSpeed = 5f;
     private Vector2 movement;
     private string currentTag = "none"; // 當前觸發的 Tag
     private string previousTag = "none"; // 保存滑行前的動畫
     private bool isSliding = false; // 是否正在執行滑行動畫
+
+    public HealthBar healthBar; // 引用健康條
+
     private void Start()
     {
         // 確保默認狀態
@@ -24,81 +28,39 @@ public class BobController : MonoBehaviour
         hammer.SetActive(false);
         slide.SetActive(false);
         hit.SetActive(false);
+        vanish.SetActive(false); // 初始化消失動畫為禁用
     }
-    /*private enum ActionState
-    {
-        Normal,
-        SwordAnimation,
-        BowAnimation,
-        HammerAnimation
-    }*/
 
-    //private ActionState currentState = ActionState.Normal; // 初始狀態
     private void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal"); // 左右
         movement.y = Input.GetAxisRaw("Vertical");   // 上下
 
-        // 按鍵切換狀態
-        /*if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (currentState == ActionState.SwordAnimation)
-            {
-                currentState = ActionState.Normal;
-            }
-            else
-            {
-                currentState = ActionState.SwordAnimation;
-            }
-            Debug.Log("Switched to " + currentState);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (currentState == ActionState.BowAnimation)
-            {
-                currentState = ActionState.Normal;
-            }
-            else
-            {
-                currentState = ActionState.BowAnimation;
-            }
-            Debug.Log("Switched to " + currentState);
-        }
-
-        // 執行對應的函式
-        switch (currentState)
-        {
-            case ActionState.Normal:
-                NormalAction();
-                break;
-            case ActionState.SwordAnimation:
-                PlaySwordAnimation();
-                break;
-            case ActionState.BowAnimation:
-                PlayBowAnimation();
-                break;
-        }*/
-        // 檢查按鍵來觸發 Tag 動作
-        if (Input.GetKeyDown(KeyCode.Alpha6)) // 按下鍵盤上的 "1"
+        // 動作邏輯
+        if (Input.GetKeyDown(KeyCode.Alpha6)) // 按鍵觸發劍動畫
         {
             TriggerActionByTag("sword");
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha7)) // 按下鍵盤上的 "2"（可擴展）
+        else if (Input.GetKeyDown(KeyCode.Alpha7)) // 按鍵觸發槍動畫
         {
             TriggerActionByTag("gun");
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha8))
+        else if (Input.GetKeyDown(KeyCode.Alpha8)) // 按鍵觸發槌動畫
         {
             TriggerActionByTag("hammer");
         }
-
-        if (Input.GetKeyDown(KeyCode.E) && !isSliding)     //滑鏟
+        if (Input.GetKeyDown(KeyCode.E) && !isSliding) // 滑鏟
         {
             TriggerActionByTag("slide");
         }
 
-        // 執行對應的函式
+        // 健康值檢查
+        if (healthBar.getHealth() <= 0)
+        {
+            TriggerActionByTag("vanish");
+        }
+
+        // 根據標籤觸發動作
         switch (currentTag)
         {
             case "sword":
@@ -116,41 +78,25 @@ public class BobController : MonoBehaviour
             case "hit":
                 PlayHitAnimation();
                 break;
+            case "vanish":
+                PlayVanishAnimation();
+                break;
             default:
                 NormalAction();
                 break;
         }
     }
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // 檢查碰到的物件是否有 "monster" Tag
-        if (collision.gameObject.CompareTag("monster"))
-        {
-            // 觸發 "hit" 動作
-            TriggerActionByTag("hit");
-        }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        // 如果使用觸發器而非碰撞，檢查 Tag
-        if (collider.gameObject.CompareTag("monster"))
-        {
-            // 觸發 "hit" 動作
-            TriggerActionByTag("hit");
-        }
-    }*/
     void FixedUpdate()
     {
         // 移動角色
         transform.Translate(movement * moveSpeed * Time.deltaTime);
     }
 
-
-    // 根據 Tag 觸發對應的動作
     public void TriggerActionByTag(string tag)
     {
-        if(tag == "none"){
+        if (tag == "none")
+        {
             currentTag = "none";
             Debug.Log("Current action triggered by tag: " + currentTag);
             return;
@@ -178,12 +124,18 @@ public class BobController : MonoBehaviour
             previousTag = currentTag; // 記錄當前動畫
             currentTag = "hit";
         }
+        else if (vanish.CompareTag(tag))
+        {
+            previousTag = currentTag; // 記錄當前動畫
+            currentTag = "vanish";
+        }
         else
         {
             currentTag = "none";
         }
         Debug.Log("Current action triggered by tag: " + currentTag);
     }
+
     private void NormalAction()
     {
         gun.SetActive(false);
@@ -192,7 +144,23 @@ public class BobController : MonoBehaviour
         hammer.SetActive(false);
         slide.SetActive(false);
         hit.SetActive(false);
+        vanish.SetActive(false);
     }
+
+    public void PlayVanishAnimation()
+    {
+        gun.SetActive(false);
+        one.SetActive(false);
+        sword.SetActive(false);
+        hammer.SetActive(false);
+        slide.SetActive(false);
+        hit.SetActive(false);
+        vanish.SetActive(true);
+
+        // 啟動協程，延遲返回上一動畫
+        StartCoroutine(EndAnimation(1f));
+    }
+
     public void PlayGunAnimation()
     {
         gun.SetActive(true);
@@ -201,7 +169,9 @@ public class BobController : MonoBehaviour
         hammer.SetActive(false);
         slide.SetActive(false);
         hit.SetActive(false);
+        vanish.SetActive(false);
     }
+
     public void PlaySwordAnimation()
     {
         gun.SetActive(false);
@@ -210,7 +180,9 @@ public class BobController : MonoBehaviour
         hammer.SetActive(false);
         slide.SetActive(false);
         hit.SetActive(false);
+        vanish.SetActive(false);
     }
+
     public void PlayHammerAnimation()
     {
         gun.SetActive(false);
@@ -219,6 +191,7 @@ public class BobController : MonoBehaviour
         hammer.SetActive(true);
         slide.SetActive(false);
         hit.SetActive(false);
+        vanish.SetActive(false);
     }
 
     public void PlaySlideAnimation()
@@ -230,25 +203,26 @@ public class BobController : MonoBehaviour
         hammer.SetActive(false);
         slide.SetActive(true);
         hit.SetActive(false);
-        transform.Translate(movement * moveSpeed * Time.deltaTime*2);
+        vanish.SetActive(false);
+
         // 啟動協程，延遲返回上一動畫
         StartCoroutine(ReturnToPreviousAnimation(0.4f));
     }
-    private Vector2 instmove;
+
     public void PlayHitAnimation()
     {
-        instmove = movement;
         gun.SetActive(false);
         one.SetActive(false);
         sword.SetActive(false);
         hammer.SetActive(false);
         slide.SetActive(false);
         hit.SetActive(true);
-        transform.Translate(instmove * moveSpeed * Time.deltaTime*(-2));
+        vanish.SetActive(false);
 
         // 啟動協程，延遲返回上一動畫
         StartCoroutine(ReturnToPreviousAnimation(0.25f));
     }
+
     public IEnumerator ReturnToPreviousAnimation(float delay)
     {
         yield return new WaitForSeconds(delay); // 等待指定的時間
@@ -257,6 +231,18 @@ public class BobController : MonoBehaviour
         TriggerActionByTag(previousTag);
 
         isSliding = false;
+    }
+    public IEnumerator EndAnimation(float delay)
+    {
+        yield return new WaitForSeconds(delay); // 等待指定的時間
+
+        gun.SetActive(false);
+        one.SetActive(false);
+        sword.SetActive(false);
+        hammer.SetActive(false);
+        slide.SetActive(false);
+        hit.SetActive(false);
+        vanish.SetActive(false);
     }
 
     private static BobController instance;
