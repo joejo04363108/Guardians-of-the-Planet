@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DestoryOnload : MonoBehaviour
@@ -15,8 +16,10 @@ public class DestoryOnload : MonoBehaviour
     {
         
     }
+    private static DestoryOnload instance;
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(gameObject); // 設置為不銷毀
     }
+    
 }
