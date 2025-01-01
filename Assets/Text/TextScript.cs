@@ -9,7 +9,7 @@ public class TextsScript : MonoBehaviour
     FlowerSystem flowerSys;
     bool game = true;
     public string textname = "Text";
-
+    int cnt = 0;
     bool isGameEnd = false;
     void Start()
     {
@@ -31,11 +31,17 @@ public class TextsScript : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Space)){
                 // Continue the messages, stoping by [w] or [lr] keywords.
                 flowerSys.Next();
+                cnt++;
+                if(cnt >= 5){
+                    flowerSys.RemoveDialog();
+                }
             }
             if(Input.GetKeyDown(KeyCode.R)){
                 // Resume the system that stopped by [stop] or Stop().
                 flowerSys.Resume();
             }
         }
+
+        
     }
 }

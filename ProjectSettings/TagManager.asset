@@ -24,6 +24,13 @@ TagManager:
   - Tree
   - hit
   - monster
+  - ore1
+  - ore2
+  - ore3
+  - ore4
+  - ore5
+  - ore6
+  - ore7
   layers:
   - Default
   - TransparentFX
