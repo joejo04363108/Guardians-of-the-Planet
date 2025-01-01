@@ -21,6 +21,9 @@ TagManager:
   - item_ore
   - gun
   - slide
+  - Tree
+  - hit
+  - monster
   layers:
   - Default
   - TransparentFX
