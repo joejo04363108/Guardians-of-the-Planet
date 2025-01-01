@@ -12,6 +12,19 @@ public class MineralCollector : MonoBehaviour
 
     public string tag_name;
     public bool is_break = false;
+
+    void Start(){
+        player = GameObject.FindWithTag("bob"); // 假設 Player 物件有 "Player" 標籤
+        if (player == null)
+        {
+            Debug.LogError("Player object not found!");
+        }
+
+        // 尋找特定類型的組件
+        backPack = FindObjectOfType<BackPack>();
+        lightBar = FindObjectOfType<LightBar>();
+        useHammer = FindObjectOfType<UseHammer>();
+    }
     void Update()
     {
         // 檢測玩家附近是否有礦物
