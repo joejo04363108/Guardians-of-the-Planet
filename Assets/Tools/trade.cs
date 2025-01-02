@@ -20,6 +20,7 @@ public class trade : MonoBehaviour
     private bool is_market_package_Active = false;
     private bool is_market_trade_Active = false;
 
+    public string trade__ ;
     //public GameObject UI;
 
 
@@ -43,7 +44,7 @@ public class trade : MonoBehaviour
     {
         //if(UI == null) UI = GameObject.FindWithTag("UI");
          if(player == null) player = GameObject.FindWithTag("bob");
-         if(trade1 == null) trade1 = GameObject.FindWithTag("trade_member1");
+         if(trade1 == null) trade1 = GameObject.FindWithTag(trade__);
          //if(market_package  == null) market_package = GameObject.FindWithTag("trade_package");
          //if(market_trade == null) market_trade = GameObject.FindWithTag("trade1");
         //if(canvas == null) canvas = GameObject.FindWithTag("Bed");

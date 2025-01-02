@@ -2045,6 +2045,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cnt: 0
+  tree_cnt: 0
+  goodend: 0
 --- !u!4 &516184791
 Transform:
   m_ObjectHideFlags: 0
@@ -2880,11 +2882,11 @@ PrefabInstance:
     - target: {fileID: 1556819777251363039, guid: 98e2fa006889c53448991768bae3559c, type: 3}
       propertyPath: prefabs.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8021400621856128520}
     - target: {fileID: 1556819777251363039, guid: 98e2fa006889c53448991768bae3559c, type: 3}
       propertyPath: prefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1857442941}
     - target: {fileID: 1556819777251363039, guid: 98e2fa006889c53448991768bae3559c, type: 3}
       propertyPath: prefabs.Array.data[4]
       value: 
@@ -3604,6 +3606,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &955181702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6537414753366836736, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+  m_PrefabInstance: {fileID: 8679508554841872716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &962394080
 GameObject:
   m_ObjectHideFlags: 0
@@ -3784,7 +3791,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967893073}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e3d7b057f0ebd3469dd4335f108a31b, type: 3}
   m_Name: 
@@ -3963,6 +3970,7 @@ GameObject:
   - component: {fileID: 1014516245}
   - component: {fileID: 1014516246}
   - component: {fileID: 1014516247}
+  - component: {fileID: 1014516248}
   m_Layer: 0
   m_Name: trade
   m_TagString: Untagged
@@ -4002,6 +4010,7 @@ MonoBehaviour:
   revealDistance: 2
   market_package: {fileID: 1559382007}
   market_trade: {fileID: 3299258695201916017}
+  trade__: trade_member1
 --- !u!114 &1014516247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4014,6 +4023,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80cac87e39169b24287fae36f926c4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1014516248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014516244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b97dd641f4c40842b9ef287c15cad89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  trade1: {fileID: 0}
+  revealDistance: 2
+  market_package: {fileID: 1559382007}
+  market_trade: {fileID: 184149366}
+  trade__: trade_member2
 --- !u!1001 &1025612074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4297,6 +4324,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2546914348052900012, guid: 51b811279b884506a3dd2d52526e7780, type: 3}
   m_PrefabInstance: {fileID: 1161276301}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1169918381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 480064831832392743, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+  m_PrefabInstance: {fileID: 8679508554841872716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1192079953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4503,6 +4535,7 @@ GameObject:
   - component: {fileID: 1268934014}
   - component: {fileID: 1268934015}
   - component: {fileID: 1268934016}
+  - component: {fileID: 1268934017}
   m_Layer: 0
   m_Name: Pick
   m_TagString: Untagged
@@ -4573,6 +4606,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80cac87e39169b24287fae36f926c4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1268934017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268934011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da209939e2234354d8ec460e2040f0a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 494918632}
+  pickUpRange: 2
+  Tag_Name: item_seed
+  timer: {fileID: 516184790}
+  prefab: {fileID: 8021400621856128520}
+  backPack: {fileID: 1867040959}
 --- !u!1001 &1308734342
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4828,6 +4879,11 @@ GameObject:
 --- !u!1 &1418311720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1327880514696023905, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+  m_PrefabInstance: {fileID: 8679508554841872716}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1426013133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6189854718243743555, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
   m_PrefabInstance: {fileID: 8679508554841872716}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1456997826
@@ -5966,6 +6022,7 @@ GameObject:
   - component: {fileID: 2104889174}
   - component: {fileID: 2104889175}
   - component: {fileID: 2104889176}
+  - component: {fileID: 2104889177}
   m_Layer: 0
   m_Name: ButtonEvent
   m_TagString: Untagged
@@ -6020,6 +6077,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80cac87e39169b24287fae36f926c4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2104889177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104889173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3647824b574db9a4989abe59ba58c54d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot1: {fileID: 1169918381}
+  slot2: {fileID: 1426013133}
+  slot3: {fileID: 0}
+  slot4: {fileID: 955181702}
+  trade: {fileID: 612047889}
+  backPack: {fileID: 1867040959}
+  slot_num: 23
+  trade_tag1: item_wheel
+  trade_tag2: item_ore
 --- !u!1 &2128855354
 GameObject:
   m_ObjectHideFlags: 0
@@ -7353,12 +7431,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3341960295641765177, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3893096371980831913, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
       propertyPath: m_TagString
       value: trade1
       objectReference: {fileID: 0}
+    - target: {fileID: 6501715403659821340, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501715403659821340, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501715403659821340, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2104889177}
+    - target: {fileID: 6501715403659821340, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501715403659821340, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Trade
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501715403659821340, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: market_button2, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501715403659821340, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8897285712297660195, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 193c4d9a6b0a8b245baa746080ea5d7b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

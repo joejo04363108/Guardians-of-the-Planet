@@ -43,6 +43,8 @@ TagManager:
   - health
   - light
   - earth_tree
+  - trade_member2
+  - item_seed
   layers:
   - Default
   - TransparentFX

@@ -32,8 +32,17 @@ public class LightBar : MonoBehaviour{
 		return slider.value;
 	}
 	
-	void Start(){
-		
-	}
+	 void Start()
+    {
+        InvokeRepeating("RestoreLight", 1f, 1f); // 每 1 秒執行一次
+    }
+
+    void RestoreLight()
+    {
+        if (slider.value < slider.maxValue)
+        {
+            slider.value += 1; // 每秒增加 1
+        }
+    }
 
 }
