@@ -1096,6 +1096,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8456018872503212725, guid: 703c0a6e7f764f80998fc2337c577056, type: 3}
   m_PrefabInstance: {fileID: 208240672}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &221299254 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1831007369649558762, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+  m_PrefabInstance: {fileID: 8679508554841872716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &230385813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2890,7 +2895,7 @@ PrefabInstance:
     - target: {fileID: 1556819777251363039, guid: 98e2fa006889c53448991768bae3559c, type: 3}
       propertyPath: prefabs.Array.data[4]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8021400621856128520}
     - target: {fileID: 1556819777251363039, guid: 98e2fa006889c53448991768bae3559c, type: 3}
       propertyPath: prefabs.Array.data[5]
       value: 
@@ -3246,6 +3251,11 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3266063721620778289, guid: 841b78ab48be48ad8c02553e97bd0f27, type: 3}
   m_PrefabInstance: {fileID: 776714309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &840441267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3576285561033147892, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+  m_PrefabInstance: {fileID: 8679508554841872716}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &843684637
 GameObject:
@@ -3971,6 +3981,7 @@ GameObject:
   - component: {fileID: 1014516246}
   - component: {fileID: 1014516247}
   - component: {fileID: 1014516248}
+  - component: {fileID: 1014516249}
   m_Layer: 0
   m_Name: trade
   m_TagString: Untagged
@@ -4041,6 +4052,24 @@ MonoBehaviour:
   market_package: {fileID: 1559382007}
   market_trade: {fileID: 184149366}
   trade__: trade_member2
+--- !u!114 &1014516249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014516244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b97dd641f4c40842b9ef287c15cad89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  trade1: {fileID: 0}
+  revealDistance: 2
+  market_package: {fileID: 1559382007}
+  market_trade: {fileID: 221299254}
+  trade__: trade_member3
 --- !u!1001 &1025612074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5019,6 +5048,11 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3584928640513468805, guid: 1d1d695a21154d6d94f4c7ee57f28289, type: 3}
   m_PrefabInstance: {fileID: 1470717316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1483159569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7904271143722174419, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+  m_PrefabInstance: {fileID: 8679508554841872716}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1501645072
 GameObject:
@@ -6023,6 +6057,7 @@ GameObject:
   - component: {fileID: 2104889175}
   - component: {fileID: 2104889176}
   - component: {fileID: 2104889177}
+  - component: {fileID: 2104889178}
   m_Layer: 0
   m_Name: ButtonEvent
   m_TagString: Untagged
@@ -6098,6 +6133,27 @@ MonoBehaviour:
   slot_num: 23
   trade_tag1: item_wheel
   trade_tag2: item_ore
+--- !u!114 &2104889178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104889173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3647824b574db9a4989abe59ba58c54d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot1: {fileID: 840441267}
+  slot2: {fileID: 2141661697}
+  slot3: {fileID: 0}
+  slot4: {fileID: 1483159569}
+  trade: {fileID: 1073953405709067893}
+  backPack: {fileID: 1867040959}
+  slot_num: 23
+  trade_tag1: item_wheel
+  trade_tag2: item_wheel
 --- !u!1 &2128855354
 GameObject:
   m_ObjectHideFlags: 0
@@ -6129,6 +6185,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2141661697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7128851576034944656, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+  m_PrefabInstance: {fileID: 8679508554841872716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &221281222684764547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7417,58 +7478,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1283952919090005225, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
-      propertyPath: m_TagString
-      value: trade_package
-      objectReference: {fileID: 0}
     - target: {fileID: 1576886061203728761, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2104889175}
-    - target: {fileID: 2173216877683101089, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
-      propertyPath: m_Name
-      value: "\u4EA4\u6613"
-      objectReference: {fileID: 0}
-    - target: {fileID: 3341960295641765177, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+    - target: {fileID: 1831007369649558762, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3893096371980831913, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
-      propertyPath: m_TagString
-      value: trade1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6501715403659821340, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6501715403659821340, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+    - target: {fileID: 2173216877683101089, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+      propertyPath: m_Name
+      value: "\u4EA4\u6613"
       objectReference: {fileID: 0}
     - target: {fileID: 6501715403659821340, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2104889177}
-    - target: {fileID: 6501715403659821340, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6501715403659821340, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Trade
-      objectReference: {fileID: 0}
-    - target: {fileID: 6501715403659821340, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: market_button2, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6501715403659821340, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8897285712297660195, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
-      propertyPath: m_Sprite
+    - target: {fileID: 7868552815158624463, guid: 92eb81b7f8e46ca4eadd0962ca8a404f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 21300000, guid: 193c4d9a6b0a8b245baa746080ea5d7b, type: 3}
+      objectReference: {fileID: 2104889178}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
