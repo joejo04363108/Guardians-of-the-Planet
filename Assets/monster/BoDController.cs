@@ -1,10 +1,11 @@
 using UnityEngine;
 using System.Collections;
 
-public class goblinController : MonoBehaviour
+public class BoDController : MonoBehaviour
 {
     public float detectRange = 5f;       // 偵測範圍
     public float attackRange = 3f;      // 攻擊範圍
+    public float TpRange = 7f;          // 順移範圍
     public float attackInterval = 2f;   // 攻擊間隔
     public float moveSpeed = 2f;        // 移動速度
     public HealthBar healthBar;
@@ -14,12 +15,11 @@ public class goblinController : MonoBehaviour
     private bool isAttacking = false;   // 是否正在攻擊
     private bool isPlayerInRange = false; // 主角是否在偵測範圍內
     private bool isTakingDamage = false; // 是否正在撥放受傷動畫
-
     public int mons_hp = 10;            // 敵人血量
 
     void Start()
     {
-        mons_hp = 15;
+        mons_hp = 30;
         // 找到主角物件
         player = GameObject.FindWithTag("bob");
         if (player != null)
@@ -33,7 +33,7 @@ public class goblinController : MonoBehaviour
         // 確保初始狀態為 Idle
         if (animator != null)
         {
-            animator.Play("goblinIdle");
+            animator.Play("Idle");
         }
         if (healthBar == null)
         {
@@ -52,16 +52,29 @@ public class goblinController : MonoBehaviour
             {
                 float distance = Vector3.Distance(transform.position, player.transform.position);
 
-                if (distance <= detectRange)
+                if (distance <= TpRange)
                 {
                     isPlayerInRange = true;
 
                     if (!isTakingDamage) // 確保不打斷受傷動畫
                     {
-                        if (distance > attackRange && !isAttacking)
+                        if (distance > detectRange && distance <= TpRange && !isAttacking)
+                        {
+                            // 撥放 Cast 動畫，然後順移
+                            animator.Play("Cast");
+                            yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+                            MoveTowardsPlayer();
+                            // 順移至主角位置附近
+                            transform.position = player.transform.position + (transform.position - player.transform.position).normalized * attackRange;
+
+                            // 撥放 Spell 動畫
+                            animator.Play("Spell");
+                            yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+                        }
+                        else if (distance < detectRange && distance > attackRange && !isAttacking)
                         {
                             // 切換到 Walk 並移動向主角
-                            animator.Play("goblinWalk");
+                            animator.Play("Walk");
                             MoveTowardsPlayer();
                         }
                         else if (distance <= attackRange && !isAttacking)
@@ -77,7 +90,7 @@ public class goblinController : MonoBehaviour
                     // 切換到 Idle
                     if (!isTakingDamage)
                     {
-                        animator.Play("goblinIdle");
+                        animator.Play("Idle");
                     }
                 }
             }
@@ -87,7 +100,7 @@ public class goblinController : MonoBehaviour
                 // 切換到 Idle
                 if (!isTakingDamage)
                 {
-                    animator.Play("goblinIdle");
+                    animator.Play("Idle");
                 }
             }
 
@@ -103,11 +116,11 @@ public class goblinController : MonoBehaviour
             transform.position += direction * moveSpeed * Time.deltaTime * 10;
             if (direction.x < 0)
             {
-                FlipCharacter(false);
+                FlipCharacter(true);
             }
             if (direction.x > 0)
             {
-                FlipCharacter(true);
+                FlipCharacter(false);
             }
         }
     }
@@ -119,7 +132,7 @@ public class goblinController : MonoBehaviour
         // 切換到 Attack 動畫
         if (animator != null)
         {
-            animator.Play("goblinAttack");
+            animator.Play("Attack");
         }
         //yield return new WaitForSeconds(0.4f);
         //playerController.TriggerActionByTag("hit");
@@ -169,7 +182,7 @@ public class goblinController : MonoBehaviour
         isTakingDamage = true;
 
         // 撥放 Hit 動畫
-        animator.Play("goblinHit");
+        animator.Play("Hurt");
 
         // 等待動畫完成
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length / 2);
@@ -182,7 +195,7 @@ public class goblinController : MonoBehaviour
         isTakingDamage = true;
 
         // 撥放 Hit 動畫
-        animator.Play("gobinHit");
+        animator.Play("Death");
 
         // 等待動畫完成
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length / 2);
@@ -202,7 +215,12 @@ public class goblinController : MonoBehaviour
         // 可視化攻擊範圍
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+
+        // 可視化順移範圍
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, TpRange);
     }
+
     void FlipCharacter(bool faceLeft)
     {
         Vector3 scale = transform.localScale;
@@ -210,4 +228,3 @@ public class goblinController : MonoBehaviour
         transform.localScale = scale;
     }
 }
-

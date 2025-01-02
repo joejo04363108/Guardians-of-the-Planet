@@ -66,6 +66,7 @@ public class swordController : MonoBehaviour
             {
                 sporeMonsterController enemyController = collider.GetComponent<sporeMonsterController>();
                 goblinController goblin = collider.GetComponent<goblinController>();
+                BoDController boss = collider.GetComponent<BoDController>();
                 if (enemyController != null)
                 {
                     enemyController.TakeDamage(2); // 對敵人造成傷害
@@ -73,6 +74,10 @@ public class swordController : MonoBehaviour
                 if(goblin != null)
                 {
                     goblin.TakeDamage(2);
+                }
+                if (boss != null)
+                {
+                    boss.TakeDamage(2);
                 }
             }
         }
