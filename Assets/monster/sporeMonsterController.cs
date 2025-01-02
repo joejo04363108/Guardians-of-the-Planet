@@ -178,6 +178,7 @@ public class sporeMonsterController : MonoBehaviour
         isTakingDamage = false;
     }
 
+    private Mineral mineral;
     private IEnumerator Die()
     {
         isTakingDamage = true;
@@ -187,7 +188,10 @@ public class sporeMonsterController : MonoBehaviour
 
         // 等待動畫完成
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length / 2);
+        mineral = GetComponent<Mineral>();
 
+        mineral.Break();
+        
         isTakingDamage = false;
         // 播放死亡動畫或處理死亡邏輯
         Debug.Log("Enemy defeated!");

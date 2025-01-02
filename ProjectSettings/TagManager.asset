@@ -42,6 +42,10 @@ TagManager:
   - trade_member1
   - health
   - light
+  - earth_tree
+  - trade_member2
+  - item_seed
+  - trade_member3
   layers:
   - Default
   - TransparentFX

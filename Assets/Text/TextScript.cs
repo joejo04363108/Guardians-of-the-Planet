@@ -2,48 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Flower;
+using UnityEngine.SceneManagement;
 
 public class TextsScript : MonoBehaviour
 {
     // Start is called before the first frame update
     FlowerSystem flowerSys;
-    bool game = true;
-    public string textname = "Text";
-    int cnt = 0;
 
-    public int max_cnt = 3;
+    public string str;
+    public string flowers;
+
     bool isGameEnd = false;
     void Start()
     {
-        flowerSys = FlowerManager.Instance.CreateFlowerSystem("FlowerSample",false);
-        flowerSys.SetupDialog();
+        this.flowerSys = FlowerManager.Instance.CreateFlowerSystem(flowers);
+        this.flowerSys.SetupDialog();
+        this.flowerSys.SetTextList(new List<string>{str});
+
+        Debug.Log("flower");
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(game){
-            flowerSys.ReadTextFromResource(textname);
-            game = false;
-        }
+
         
         if (!isGameEnd)
         {
+
+            if(Input.GetKeyDown(KeyCode.Escape)){
+                // Continue the messages, stoping by [w] or [lr] keywords.
+                flowerSys.RemoveDialog();
+            }
+            
             if(Input.GetKeyDown(KeyCode.Space)){
                 // Continue the messages, stoping by [w] or [lr] keywords.
                 flowerSys.Next();
-                cnt++;
-                if(cnt >= max_cnt){
-                    flowerSys.RemoveDialog();
-                }
             }
             if(Input.GetKeyDown(KeyCode.R)){
-                // Resume the system that stopped by [stop] or Stop().
                 flowerSys.Resume();
             }
         }
 
         
+    }
+
+    bool IsSceneLoaded(string name)
+    {
+        Scene scene = SceneManager.GetSceneByName(name);
+        return scene.isLoaded;
     }
 }

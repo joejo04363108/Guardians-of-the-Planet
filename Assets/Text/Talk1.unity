@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &319928084
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -215,11 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 709396668}
-  - component: {fileID: 709396667}
-  - component: {fileID: 709396666}
-  - component: {fileID: 709396665}
-  - component: {fileID: 709396664}
-  - component: {fileID: 709396663}
+  - component: {fileID: 709396669}
   m_Layer: 0
   m_Name: SwitchEvent
   m_TagString: Untagged
@@ -227,79 +223,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &709396663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 709396662}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9faa1ba2da665af44bdda0c91914dc1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSceneName: Talk1
---- !u!114 &709396664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 709396662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1206fc3cca3de0547876ff0b724e245d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSceneName: Talk1
-  test: {fileID: 0}
-  max_cnt: 3
---- !u!114 &709396665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 709396662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cc9add2d378e9b4cba24604b8f1c88d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSceneName: MarsBase
-  is_run: 0
-  max_cnt: 3
---- !u!114 &709396666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 709396662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cc9add2d378e9b4cba24604b8f1c88d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSceneName: ToolScene
-  is_run: 0
-  max_cnt: 3
---- !u!114 &709396667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 709396662}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cc9add2d378e9b4cba24604b8f1c88d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextSceneName: Talk2
-  is_run: 0
-  max_cnt: 3
 --- !u!4 &709396668
 Transform:
   m_ObjectHideFlags: 0
@@ -315,6 +238,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &709396669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709396662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe639cc6d6e953940b135cb2b0543b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: 
+  is_run: 0
+  max_cnt: 3
 --- !u!1 &778163827
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,13 +330,72 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778163827}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0037, y: -0.0103, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0037231445, y: -0.010314941, z: 0}
   m_LocalScale: {x: 1.2801, y: 1.2919, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1418231378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1418231379}
+  - component: {fileID: 1418231380}
+  - component: {fileID: 1418231381}
+  m_Layer: 0
+  m_Name: TalkSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1418231379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418231378}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20.387033, y: 11.609768, z: -0.12714252}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1418231380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418231378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac6908b07328714b820d19ed47b3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  str: "[show]NPC(\u79D1\u5B78\u5BB6):\u6211\u767C\u73FE\u706B\u661F\u4E0A\u7684\u67D0\u7A2E\u91D1\u5C6C\u80FD\u5920\u7528\u4F86\u6539\u9020\u74B0\u5883[w]NPC(\u79D1\u5B78\u5BB6):\u62DC\u8A17\u4F60\u524D\u5F80\u706B\u661F\u53BB\u5C0B\u627E\u9019\u7A2E\u91D1\u5C6C\u5427[w][hide]"
+  flowers: f1
+--- !u!114 &1418231381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418231378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80cac87e39169b24287fae36f926c4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1964168312
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,12 +420,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964168312}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ac6908b07328714b820d19ed47b3e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textname: Text
+  str: 
+  flowers: 
 --- !u!4 &1964168314
 Transform:
   m_ObjectHideFlags: 0
@@ -545,3 +543,4 @@ SceneRoots:
   - {fileID: 319928085}
   - {fileID: 778163829}
   - {fileID: 709396668}
+  - {fileID: 1418231379}
