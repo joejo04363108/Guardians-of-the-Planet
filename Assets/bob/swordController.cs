@@ -65,9 +65,14 @@ public class swordController : MonoBehaviour
             if (collider.CompareTag("monster"))
             {
                 sporeMonsterController enemyController = collider.GetComponent<sporeMonsterController>();
+                goblinController goblin = collider.GetComponent<goblinController>();
                 if (enemyController != null)
                 {
                     enemyController.TakeDamage(2); // 對敵人造成傷害
+                }
+                if(goblin != null)
+                {
+                    goblin.TakeDamage(2);
                 }
             }
         }

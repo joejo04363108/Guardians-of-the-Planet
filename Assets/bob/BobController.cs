@@ -204,7 +204,7 @@ public class BobController : MonoBehaviour
         slide.SetActive(true);
         hit.SetActive(false);
         vanish.SetActive(false);
-
+        transform.Translate(movement * moveSpeed * Time.deltaTime*2);
         // 啟動協程，延遲返回上一動畫
         StartCoroutine(ReturnToPreviousAnimation(0.4f));
     }
