@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BobController : MonoBehaviour
 {
@@ -163,7 +164,7 @@ public class BobController : MonoBehaviour
         vanish.SetActive(true);
 
         // 啟動協程，延遲返回上一動畫
-        StartCoroutine(EndAnimation(1f));
+        StartCoroutine(EndAnimation(1.5f));
     }
 
     public void PlayGunAnimation()
@@ -240,7 +241,7 @@ public class BobController : MonoBehaviour
     public IEnumerator EndAnimation(float delay)
     {
         yield return new WaitForSeconds(delay); // 等待指定的時間
-
+        SceneManager.LoadScene("Death");
         gun.SetActive(false);
         one.SetActive(false);
         sword.SetActive(false);

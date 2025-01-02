@@ -16,6 +16,10 @@ public class mapController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            polluted1.SetActive(false);
+        }
     }
 
     public void HidePolluted1()

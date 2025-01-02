@@ -39,10 +39,20 @@ public class BulletController : MonoBehaviour
         {
             // 嘗試獲取 sporeMonsterController
             sporeMonsterController enemyController = collision.GetComponent<sporeMonsterController>();
+            goblinController goblin = collision.GetComponent<goblinController>();
+            BoDController boss = collision.GetComponent<BoDController>();
             if (enemyController != null)
             {
                 // 調用 TakeDamage 方法，對敵人造成傷害
                 enemyController.TakeDamage(damage);
+            }
+            if(goblin != null)
+            {
+                goblin.TakeDamage(damage);
+            }
+            if (boss != null)
+            {
+                boss.TakeDamage(damage);
             }
         }
 

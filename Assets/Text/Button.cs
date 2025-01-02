@@ -22,4 +22,8 @@ public class ButtonHandler : MonoBehaviour
         SceneManager.LoadScene("Start0");
         
     }
+    public void RestartButton()
+    {
+        SceneManager.LoadScene("EarthBase");
+    }
 }
