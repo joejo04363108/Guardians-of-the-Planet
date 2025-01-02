@@ -6,7 +6,7 @@ public class BoDController : MonoBehaviour
     public float detectRange = 5f;       // 偵測範圍
     public float attackRange = 3f;      // 攻擊範圍
     public float TpRange = 7f;          // 順移範圍
-    public float attackInterval = 2f;   // 攻擊間隔
+    public float attackInterval = 1.2f;   // 攻擊間隔
     public float moveSpeed = 2f;        // 移動速度
     public HealthBar healthBar;
     private GameObject player;          // 主角物件
@@ -138,7 +138,7 @@ public class BoDController : MonoBehaviour
         //playerController.TriggerActionByTag("hit");
         //healthBar.subHealth(2);
         // 等待攻擊動畫完成
-        yield return new WaitForSeconds(attackInterval / 2);
+        yield return new WaitForSeconds(attackInterval);
         // 檢查攻擊命中
         if (player != null)
         {

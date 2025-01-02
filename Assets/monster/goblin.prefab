@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8412941873857557031}
   - component: {fileID: 7227419983488824010}
   - component: {fileID: 4966180344173650118}
+  - component: {fileID: 7929410140594693256}
   m_Layer: 0
   m_Name: goblin
   m_TagString: monster
@@ -170,3 +171,21 @@ CapsuleCollider2D:
   m_Offset: {x: -0.004778385, y: -0.08282465}
   m_Size: {x: 0.25444436, y: 0.39779484}
   m_Direction: 0
+--- !u!114 &7929410140594693256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772667588482445870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa9dd372683dc464a83021b8a97924ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectRange: 5
+  attackRange: 2.4
+  attackInterval: 1
+  moveSpeed: 6
+  healthBar: {fileID: 0}
+  mons_hp: 10
