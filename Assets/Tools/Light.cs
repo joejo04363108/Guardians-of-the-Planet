@@ -33,7 +33,7 @@ public class LightBar : MonoBehaviour{
 	}
 	
 	void Start(){
-		SetLight(60);
+		
 	}
 
 }

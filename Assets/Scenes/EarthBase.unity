@@ -12833,6 +12833,7 @@ MonoBehaviour:
   x: 0
   y: 0
   z: 0
+  health_light: {fileID: 0}
   canvas: {fileID: 724175703}
 --- !u!4 &158820856
 Transform:
@@ -13121,6 +13122,52 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1273721468}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &707485386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 707485388}
+  - component: {fileID: 707485387}
+  m_Layer: 0
+  m_Name: Talk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &707485387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707485386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac6908b07328714b820d19ed47b3e70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  str: "[show]NPC(\u79D1\u5B78\u5BB6):\u7D2B\u8272\u7684\u5340\u57DF\u662F\u6C61\u67D3\u5730\uFF0C\u76EE\u524D\u5DF2\u7D93\u7121\u6CD5\u63A7\u5236[w]NPC(\u79D1\u5B78\u5BB6):\u9700\u8981\u5C07\u6A39\u82D7\u7A2E\u690D\u5728\u9644\u8FD1\u7684\u5340\u57DF\uFF0C\u4F86\u6291\u5236\u6C59\u67D3[w][hide] "
+  flowers: f3
+--- !u!4 &707485388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707485386}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1492993, y: 0.5240825, z: -0.10696987}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &724175703 stripped
@@ -21464,3 +21511,4 @@ SceneRoots:
   - {fileID: 158820856}
   - {fileID: 1275561722}
   - {fileID: 728297143}
+  - {fileID: 707485388}
