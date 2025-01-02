@@ -35,6 +35,13 @@ TagManager:
   - trade1
   - trade2
   - Bed
+  - trade_package
+  - 111
+  - health_light
+  - UI
+  - trade_member1
+  - health
+  - light
   layers:
   - Default
   - TransparentFX

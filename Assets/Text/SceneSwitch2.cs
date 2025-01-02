@@ -8,8 +8,9 @@ public class SceneSwitch2 : MonoBehaviour
     // Start is called before the first frame update
 
     public string nextSceneName;
-
+    int cnt = 0;
     public bool is_run = false;
+    public int max_cnt;
     void Start()
     {
         
@@ -21,7 +22,8 @@ public class SceneSwitch2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) // 檢測空白鍵
         {
             Debug.Log("Mars");
-            LoadNextScene();
+            cnt++;
+            if(cnt >= max_cnt) LoadNextScene();
         }
        
     }

@@ -32,7 +32,7 @@ public class TextsScript : MonoBehaviour
                 // Continue the messages, stoping by [w] or [lr] keywords.
                 flowerSys.Next();
                 cnt++;
-                if(cnt >= 5){
+                if(cnt >= 3){
                     flowerSys.RemoveDialog();
                 }
             }

@@ -37,6 +37,12 @@ public class sporeMonsterController : MonoBehaviour
         }
 
         StartCoroutine(CheckAndAct());
+
+        if(healthBar== null){
+            GameObject healthBar_ = GameObject.FindWithTag("health");
+            healthBar = healthBar_.GetComponent<HealthBar>();
+            
+        } 
     }
 
     private IEnumerator CheckAndAct()

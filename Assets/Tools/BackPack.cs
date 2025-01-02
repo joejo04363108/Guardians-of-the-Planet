@@ -42,7 +42,7 @@ public class BackPack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H)){
+        if (Input.GetKeyDown(KeyCode.F)){
             // 切換 Canvas 的顯示狀態
             for (int i = 0; i < trade.Length; i++){
                 if (prefabs[i] != null && trade[i] != null){
