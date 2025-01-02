@@ -17,7 +17,7 @@ public class UnloadScene : MonoBehaviour
             cnt++;
             if(cnt>= max_cnt){
                 LoadNextScene();
-                test.SetActive(false);
+                //test.SetActive(false);
                 
             } 
         }

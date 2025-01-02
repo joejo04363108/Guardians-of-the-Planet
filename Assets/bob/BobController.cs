@@ -242,13 +242,14 @@ public class BobController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay); // 等待指定的時間
         SceneManager.LoadScene("Death");
-        gun.SetActive(false);
+        this.gameObject.SetActive(false);
+        /*gun.SetActive(false);
         one.SetActive(false);
         sword.SetActive(false);
         hammer.SetActive(false);
         slide.SetActive(false);
         hit.SetActive(false);
-        vanish.SetActive(false);
+        vanish.SetActive(false);*/
     }
 
     private static BobController instance;

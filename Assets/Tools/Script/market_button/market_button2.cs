@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class market_button1 : MonoBehaviour
+public class market_button2 : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject slot1;
@@ -15,7 +15,8 @@ public class market_button1 : MonoBehaviour
     public BackPack backPack;
     public int slot_num;
 
-    public string trade_tag;
+    public string trade_tag1;
+    public string trade_tag2;
     void Start()
     {
         
@@ -30,23 +31,21 @@ public class market_button1 : MonoBehaviour
     public void Trade(){
         //Debug.Log("111");
         GameObject slot_item1 , slot_item2, slot_item3;
-        slot_item1 = FindChildWithTag(slot1, trade_tag);
-        slot_item2 = FindChildWithTag(slot2, trade_tag);
-        slot_item3 = FindChildWithTag(slot3, trade_tag);
+        slot_item1 = FindChildWithTag(slot1, trade_tag1);
+        slot_item2 = FindChildWithTag(slot2, trade_tag2);
+        //slot_item3 = FindChildWithTag(slot3, trade_tag);
         
 
-        if ( slot_item1  != null && slot_item2 != null && slot_item3 != null){
+        if ( slot_item1  != null && slot_item2 != null){
             GameObject newObject = Instantiate(trade);
             newObject.transform.SetParent(slot4.transform, false);
             backPack.prefabs[slot_num] = trade;
             Destroy(slot_item1);
             Destroy(slot_item2);
-            Destroy(slot_item3);
+            //Destroy(slot_item3);
 
         }
     }
-
-    
 
     GameObject FindChildWithTag(GameObject parent, string tag)
     {

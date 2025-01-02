@@ -33,7 +33,7 @@ public class HealthBar : MonoBehaviour{
 	}
 	
 	void Start(){
-		SetHealth(80);
+		//SetHealth(80);
 	}
 
 }
