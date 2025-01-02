@@ -5,7 +5,7 @@ public class goblinController : MonoBehaviour
 {
     public float detectRange = 5f;       // 偵測範圍
     public float attackRange = 3f;      // 攻擊範圍
-    public float attackInterval = 2f;   // 攻擊間隔
+    public float attackInterval = 1f;   // 攻擊間隔
     public float moveSpeed = 2f;        // 移動速度
     public HealthBar healthBar;
     private GameObject player;          // 主角物件

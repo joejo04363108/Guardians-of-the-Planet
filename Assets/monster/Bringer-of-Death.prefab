@@ -124,8 +124,8 @@ MonoBehaviour:
   detectRange: 5
   attackRange: 2.6
   TpRange: 7
-  attackInterval: 2
-  moveSpeed: 2
+  attackInterval: 1
+  moveSpeed: 4
   healthBar: {fileID: 0}
   mons_hp: 10
 --- !u!50 &536811980804312362
