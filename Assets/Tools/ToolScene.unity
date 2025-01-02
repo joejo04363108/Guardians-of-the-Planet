@@ -2032,7 +2032,7 @@ GameObject:
   - component: {fileID: 516184792}
   m_Layer: 0
   m_Name: "\u8A08\u6578"
-  m_TagString: Untagged
+  m_TagString: timer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2899,7 +2899,7 @@ PrefabInstance:
     - target: {fileID: 1556819777251363039, guid: 98e2fa006889c53448991768bae3559c, type: 3}
       propertyPath: prefabs.Array.data[5]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 612047889}
     - target: {fileID: 1556819777251363039, guid: 98e2fa006889c53448991768bae3559c, type: 3}
       propertyPath: prefabs.Array.data[6]
       value: 
@@ -3743,6 +3743,8 @@ MonoBehaviour:
   walk_side: {fileID: 1037602092}
   walk_down: {fileID: 449772914}
   walk_up: {fileID: 208240673}
+  audioSource: {fileID: 0}
+  soundClip: {fileID: 0}
   attackInterval: 2
   attackRange: 1.8
   enemyLayer:
@@ -3787,6 +3789,9 @@ GameObject:
   - component: {fileID: 967893078}
   - component: {fileID: 967893079}
   - component: {fileID: 967893080}
+  - component: {fileID: 967893081}
+  - component: {fileID: 967893082}
+  - component: {fileID: 967893083}
   m_Layer: 0
   m_Name: UseItem
   m_TagString: Untagged
@@ -3801,16 +3806,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967893073}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e3d7b057f0ebd3469dd4335f108a31b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hiddenTree: {fileID: 962394080}
+  hiddenTree: {fileID: 0}
   player: {fileID: 494918636}
   revealDistance: 2
   backPack: {fileID: 1867040959}
   tag: item_tree
+  tree_tag: earth_tree1
+  timer: {fileID: 516184790}
 --- !u!4 &967893075
 Transform:
   m_ObjectHideFlags: 0
@@ -3902,6 +3909,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80cac87e39169b24287fae36f926c4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &967893081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967893073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3d7b057f0ebd3469dd4335f108a31b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiddenTree: {fileID: 0}
+  player: {fileID: 494918636}
+  revealDistance: 2
+  backPack: {fileID: 1867040959}
+  tag: item_tree
+  tree_tag: earth_tree2
+  timer: {fileID: 516184790}
+--- !u!114 &967893082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967893073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3d7b057f0ebd3469dd4335f108a31b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiddenTree: {fileID: 0}
+  player: {fileID: 494918636}
+  revealDistance: 2
+  backPack: {fileID: 1867040959}
+  tag: item_tree
+  tree_tag: earth_tree3
+  timer: {fileID: 516184790}
+--- !u!114 &967893083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967893073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e3d7b057f0ebd3469dd4335f108a31b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiddenTree: {fileID: 0}
+  player: {fileID: 494918636}
+  revealDistance: 2
+  backPack: {fileID: 1867040959}
+  tag: item_tree
+  tree_tag: earth_tree4
+  timer: {fileID: 516184790}
 --- !u!1001 &1008693246
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4259,6 +4323,7 @@ MonoBehaviour:
   walk_up: {fileID: 32105150}
   bulletPrefab: {fileID: 1841226223972534045, guid: f29b05ef481148449862ee37938f3213, type: 3}
   firePoint: {fileID: 1550075192}
+  audioSource: {fileID: 0}
   bar: {fileID: 1706779317}
   isactive: 0
 --- !u!4 &1103381321

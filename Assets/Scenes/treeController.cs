@@ -6,6 +6,7 @@ public class TreeController : MonoBehaviour
     public GameObject[] treeParts; // 將 t01 ~ t06 拖到此陣列
     public mapController mapController; // 將 MapController 的物件拖到此處
 
+    public GameObject player;
     void Start()
     {
         // 初始隱藏所有 TilemapRenderer
@@ -17,15 +18,20 @@ public class TreeController : MonoBehaviour
                 renderer.enabled = false; // 隱藏物件渲染
             }
         }
+        if(player == null) player = GameObject.FindWithTag("bob");
     }
 
     void Update()
     {
+        if(player == null) player = GameObject.FindWithTag("bob");
         // 按下 F 鍵並檢測是否有碰撞的子物件
+        
         if (Input.GetKeyDown(KeyCode.F))
         {
             foreach (var part in treeParts)
             {
+                float distance = Vector3.Distance(player.transform.position, part.transform.position);
+                if(2f < distance) return;
                 var renderer = part.GetComponent<TilemapRenderer>();
                 if (renderer != null)
                 {

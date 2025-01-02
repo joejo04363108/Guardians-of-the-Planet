@@ -46,6 +46,11 @@ TagManager:
   - trade_member2
   - item_seed
   - trade_member3
+  - timer
+  - earth_tree1
+  - earth_tree2
+  - earth_tree3
+  - earth_tree4
   layers:
   - Default
   - TransparentFX
