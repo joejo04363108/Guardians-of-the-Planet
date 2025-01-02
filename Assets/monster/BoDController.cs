@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BoDController : MonoBehaviour
 {
@@ -203,7 +204,18 @@ public class BoDController : MonoBehaviour
         isTakingDamage = false;
         // 播放死亡動畫或處理死亡邏輯
         Debug.Log("Enemy defeated!");
+
+        GameObject timer = GameObject.FindWithTag("timer");
         Destroy(gameObject);
+
+        bool GoodEnd = timer.GetComponent<Timer>().goodend;
+
+        if(GoodEnd){
+            SceneManager.LoadScene("GoodEnd");
+        }
+        else{
+            SceneManager.LoadScene("BadEnd");
+        }
     }
 
     private void OnDrawGizmosSelected()

@@ -12,14 +12,19 @@ public class UseTree : MonoBehaviour
     public BackPack backPack;
     public string tag;
 
+    public string tree_tag;
+    public Timer timer;
     bool has_tree = false;
     float distance;
     void Update(){
         // 計算玩家與隱藏樹的距離
-        distance = Vector3.Distance(player.position, hiddenTree.transform.position);
-
-        //玩家手上的樹
-        Detect_key(tag);
+        if(hiddenTree == null ) hiddenTree = GameObject.FindWithTag(tree_tag);
+        if(hiddenTree != null){
+            distance = Vector3.Distance(player.position, hiddenTree.transform.position);
+            //玩家手上的樹
+            Detect_key(tag);
+        }
+        
     }
 
     void Detect_key(string tag){
@@ -55,16 +60,17 @@ public class UseTree : MonoBehaviour
     }
     
     void Run(int num, string tag){
-        //Debug.Log(distance);
+        Debug.Log(distance);
         if(distance <= revealDistance && has_tree){
             // 顯示隱藏的樹
-            hiddenTree.SetActive(true);
-
+            //hiddenTree.SetActive(true);
+            SpriteRenderer spriteRenderer = hiddenTree.GetComponent<SpriteRenderer>();
+            spriteRenderer.sortingOrder = 0;
             foreach (Transform child in backPack.slots[num+14].transform){
                 if (child.CompareTag(tag)){
                     backPack.prefabs[num+14] = null;
                     Destroy(child.gameObject);
-                    
+                    timer.tree_cnt++;
                 }
             }
             Debug.Log("隱藏的樹已顯示，玩家手上的樹已移除！");
