@@ -14,8 +14,13 @@ public class goblinController : MonoBehaviour
     private bool isAttacking = false;   // 是否正在攻擊
     private bool isPlayerInRange = false; // 主角是否在偵測範圍內
     private bool isTakingDamage = false; // 是否正在撥放受傷動畫
+    private bool hasPlayedIntroSound = false; // 紀錄是否已播放 soundIntro
 
-    public int mons_hp = 10;            // 敵人血量
+    public AudioSource audioSource;
+    public AudioClip soundAttack;
+    public AudioClip soundIntro;
+
+    public int mons_hp = 0;            // 敵人血量
 
     void Start()
     {
@@ -51,10 +56,15 @@ public class goblinController : MonoBehaviour
             if (player != null)
             {
                 float distance = Vector3.Distance(transform.position, player.transform.position);
-
                 if (distance <= detectRange)
                 {
                     isPlayerInRange = true;
+
+                    if (!hasPlayedIntroSound)
+                    {
+                        audioSource.PlayOneShot(soundIntro); // 播放音效
+                        hasPlayedIntroSound = true; // 標記音效已播放
+                    }
 
                     if (!isTakingDamage) // 確保不打斷受傷動畫
                     {
@@ -121,6 +131,7 @@ public class goblinController : MonoBehaviour
         {
             animator.Play("goblinAttack");
         }
+        audioSource.PlayOneShot(soundAttack);
         //yield return new WaitForSeconds(0.4f);
         //playerController.TriggerActionByTag("hit");
         //healthBar.subHealth(2);

@@ -20,6 +20,8 @@ public class BobController : MonoBehaviour
 
     public HealthBar healthBar; // 引用健康條
 
+    public AudioSource audioSource;
+    public AudioClip soundClip;
     private void Start()
     {
         // 確保默認狀態
@@ -224,7 +226,7 @@ public class BobController : MonoBehaviour
         slide.SetActive(false);
         hit.SetActive(true);
         vanish.SetActive(false);
-
+        audioSource.PlayOneShot(soundClip);
         // 啟動協程，延遲返回上一動畫
         StartCoroutine(ReturnToPreviousAnimation(0.25f));
     }
