@@ -13,6 +13,8 @@ public class swordController : MonoBehaviour
     public GameObject walk_side;
     public GameObject walk_down;
     public GameObject walk_up;
+    public AudioSource audioSource;
+    public AudioClip soundClip;
 
     public float attackInterval = 2f;  // 攻擊間隔
     public float attackRange = 3f;     // 攻擊範圍
@@ -49,6 +51,7 @@ public class swordController : MonoBehaviour
         {
             PlayAttackAnimation();
             CheckAndDealDamage();
+            audioSource.PlayOneShot(soundClip);
         }
     }
 

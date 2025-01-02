@@ -15,7 +15,7 @@ public class gunController : MonoBehaviour
     public GameObject walk_up;
     public GameObject bulletPrefab;
     public Transform firePoint;     // 子彈生成點
-
+    public AudioSource audioSource;
     public LightBar bar;
 
     private GameObject currentAnimation; // 記錄當前播放的動畫
@@ -56,6 +56,7 @@ public class gunController : MonoBehaviour
             {
                 PlayAttackAnimation();
                 Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);  //產生子彈
+                audioSource.Play();
             }
             bar.subLight(2);
         }
