@@ -299,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextSceneName: Talk2
   is_run: 0
-  max_cnt: 0
+  max_cnt: 3
 --- !u!4 &709396668
 Transform:
   m_ObjectHideFlags: 0
