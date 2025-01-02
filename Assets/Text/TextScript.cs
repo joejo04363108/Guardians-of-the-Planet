@@ -10,6 +10,8 @@ public class TextsScript : MonoBehaviour
     bool game = true;
     public string textname = "Text";
     int cnt = 0;
+
+    public int max_cnt = 3;
     bool isGameEnd = false;
     void Start()
     {
@@ -32,7 +34,7 @@ public class TextsScript : MonoBehaviour
                 // Continue the messages, stoping by [w] or [lr] keywords.
                 flowerSys.Next();
                 cnt++;
-                if(cnt >= 3){
+                if(cnt >= max_cnt){
                     flowerSys.RemoveDialog();
                 }
             }
