@@ -1749,15 +1749,11 @@ PrefabInstance:
     - target: {fileID: 1556819777251363039, guid: 98e2fa006889c53448991768bae3559c, type: 3}
       propertyPath: prefabs.Array.data[14]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 95298596}
     - target: {fileID: 1556819777251363039, guid: 98e2fa006889c53448991768bae3559c, type: 3}
       propertyPath: prefabs.Array.data[15]
       value: 
       objectReference: {fileID: 1073953405594645927}
-    - target: {fileID: 1556819777251363039, guid: 98e2fa006889c53448991768bae3559c, type: 3}
-      propertyPath: prefabs.Array.data[16]
-      value: 
-      objectReference: {fileID: 95298596}
     - target: {fileID: 7505180401908176454, guid: 98e2fa006889c53448991768bae3559c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 549.18835
