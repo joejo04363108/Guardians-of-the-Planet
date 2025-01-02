@@ -6,12 +6,20 @@ using UnityEngine.SceneManagement;
 public class UnloadScene : MonoBehaviour
 {
     public string nextSceneName; // 設置下一個場景的名稱
-
+    int cnt = 0;
+    public GameObject test;
+    public int max_cnt;
     void Update()
     {
+        if(test == null) test = GameObject.FindWithTag("111");
         if (Input.GetKeyDown(KeyCode.Space)) // 檢測空白鍵
         {
-            LoadNextScene();
+            cnt++;
+            if(cnt>= max_cnt){
+                LoadNextScene();
+                test.SetActive(false);
+                
+            } 
         }
     }
 

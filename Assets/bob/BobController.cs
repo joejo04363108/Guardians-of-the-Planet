@@ -33,6 +33,11 @@ public class BobController : MonoBehaviour
 
     private void Update()
     {
+        if(healthBar== null){
+            GameObject healthBar_ = GameObject.FindWithTag("health");
+            healthBar = healthBar_.GetComponent<HealthBar>();
+            
+        } 
         movement.x = Input.GetAxisRaw("Horizontal"); // 左右
         movement.y = Input.GetAxisRaw("Vertical");   // 上下
 

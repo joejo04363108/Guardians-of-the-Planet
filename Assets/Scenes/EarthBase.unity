@@ -12830,6 +12830,9 @@ MonoBehaviour:
   player: {fileID: 0}
   bed: {fileID: 285975439}
   revealDistance: 2
+  x: 0
+  y: 0
+  z: 0
   canvas: {fileID: 724175703}
 --- !u!4 &158820856
 Transform:
@@ -13228,6 +13231,26 @@ PrefabInstance:
     - target: {fileID: 3748546466834706755, guid: 0e64d906eebfd6247a79e70bd726f839, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 158820854}
+    - target: {fileID: 3748546466834706755, guid: 0e64d906eebfd6247a79e70bd726f839, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880851388302869417, guid: 0e64d906eebfd6247a79e70bd726f839, type: 3}
+      propertyPath: m_text
+      value: "\u7761\u89BA\u5F8C\u5C31\u76F4\u63A5\u9032\u5165\u4E0B\u4E00\u5929"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691810506037160275, guid: 0e64d906eebfd6247a79e70bd726f839, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 158820855}
+    - target: {fileID: 6691810506037160275, guid: 0e64d906eebfd6247a79e70bd726f839, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Cancel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6691810506037160275, guid: 0e64d906eebfd6247a79e70bd726f839, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Sleep, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

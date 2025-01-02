@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Sleep : MonoBehaviour
 {
@@ -14,7 +15,14 @@ public class Sleep : MonoBehaviour
 
     private bool isCanvasActive = false;
 
+    //public string targetSceneName;
 
+    public float x;
+
+    public float y;
+    public float z;
+
+    public GameObject health_light;
     public GameObject canvas; // 要開啟的 UI 或物件
      void Start(){
         player = GameObject.FindWithTag("bob"); // 假設 Player 物件有 "Player" 標籤
@@ -40,6 +48,38 @@ public class Sleep : MonoBehaviour
                 canvas.SetActive(isCanvasActive);
             }
             
+        }
+    }
+    public void Cancel(){
+        isCanvasActive = !isCanvasActive;
+        canvas.SetActive(isCanvasActive);
+    }
+
+    public void tp(){
+        if (SceneManager.GetSceneByName("EarthBase") != null)
+        {
+            SceneManager.LoadScene("EarthBase");
+            Vector3 targetPosition = new Vector3(x, y, z);
+            player.transform.position = targetPosition;
+            health_light.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("Scene not found: ");
+        }
+    }
+
+
+    public void tp1(){
+        if (SceneManager.GetSceneByName("EarthBase") != null)
+        {
+            SceneManager.LoadScene("EarthBase");
+            Vector3 targetPosition = new Vector3(x, y, z);
+            player.transform.position = targetPosition;
+        }
+        else
+        {
+            Debug.LogError("Scene not found: ");
         }
     }
 }
